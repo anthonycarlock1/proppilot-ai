@@ -1,6 +1,6 @@
 # Terraform remote state
 
-All PropPilot roots use the dedicated `anthony-proppilot-tfstate-388691194728` S3 bucket in `us-east-1`, with distinct default-workspace keys:
+All six PropPilot roots use the dedicated `anthony-proppilot-tfstate-388691194728` S3 bucket in `us-east-1`, with distinct default-workspace keys:
 
 | Root | Key |
 | --- | --- |
@@ -9,6 +9,7 @@ All PropPilot roots use the dedicated `anthony-proppilot-tfstate-388691194728` S
 | hosting | proppilot/hosting/terraform.tfstate |
 | urgency-hosting | proppilot/urgency-hosting/terraform.tfstate |
 | tickets | proppilot/tickets/terraform.tfstate |
+| runtime | proppilot/runtime/terraform.tfstate |
 
 The bucket has versioning, AES256 server-side encryption, all public-access blocks, bucket-owner-enforced ownership and a deny for non-TLS requests. Terraform `prevent_destroy` and `force_destroy = false` protect ordinary bucket teardown. These are safeguards, not protection against an administrator deliberately changing configuration or deleting versions. No state expiration lifecycle is configured: old versions remain available for recovery and incur small storage/request charges.
 
@@ -49,6 +50,8 @@ For state damage, freeze writes, privately download the current object and the s
 
 For ordinary project teardown, destroy each application root from a reviewed plan while keeping the backend available. Ticket deletion protection and nonempty ECR repositories require explicit handling. Keep the state bucket and version history after workload removal. Backend destruction is a separate deliberate operation: migrate state out, verify protected backups, remove lifecycle protection only with approval, and handle all object versions explicitly. No backend deletion is part of the current workflow.
 
-Verification results are recorded in [remote-state-verification.json](remote-state-verification.json). An unverified plan/configuration alone is not evidence of migration.
+The original five roots were migrated from local state; the runtime root was initialized directly against S3 for the EKS milestone. Its zero-change follow-up plan is recorded in [EKS evidence](eks-verification.json).
+
+Verification results for the original migration are recorded in [remote-state-verification.json](remote-state-verification.json). An unverified plan/configuration alone is not evidence of migration.
 
 Migration metadata behavior is documented in [Terraform 1.15.6 state migration implementation](https://github.com/hashicorp/terraform/blob/v1.15.6/internal/states/statemgr/migrate.go): serial/lineage are preserved where supported by both state managers. The initial strict metadata check stopped on the registry root; full snapshot equality was verified before proceeding.

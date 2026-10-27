@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: proppilot-config
+data:
+  AWS_REGION: us-east-1
+  AWS_DEFAULT_REGION: us-east-1
+  AWS_EC2_METADATA_DISABLED: "true"
+  MODEL_PROVIDER: sagemaker
+  CATEGORY_SAGEMAKER_ENDPOINT: anthony-proppilot-category-v010
+  URGENCY_SAGEMAKER_ENDPOINT: anthony-proppilot-urgency-v010
+  BEDROCK_MODEL_ID: amazon.nova-lite-v1:0
+  TICKETS_TABLE: anthony-proppilot-tickets
+  CATEGORY_SERVICE_URL: http://category:8000
+  URGENCY_SERVICE_URL: http://urgency:8000
+  TICKETS_SERVICE_URL: http://tickets:8000

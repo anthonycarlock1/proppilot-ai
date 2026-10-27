@@ -25,7 +25,7 @@ gh run view RUN_ID --repo anthonycarlock1/proppilot-ai --log-failed
 
 A manual workflow dispatch on `main` reruns checks/publication/verification for that commit. A dispatch on another branch runs tests only. Review the run's conclusion and artifacts; a workflow file by itself is not proof that publication worked. The GitHub account needs Actions minutes/package storage allowance for this private repository.
 
-The next deployment milestone must configure scoped GitHub-to-AWS identity, Kubernetes workload identity and GHCR pull access, then verify the live cloud path. Do not upload development AWS credentials or the local assessment token to repository secrets as a shortcut. Kubernetes rollback should select a previously verified image digest and rerun rollout/cloud checks; this workflow does not yet automate that rollout.
+The manual [EKS deployment](kubernetes.md) now uses scoped workload identities, private ECR images and a verified real-cloud browser path. Automated deployment still needs scoped GitHub-to-AWS identity and namespace RBAC. Do not upload development AWS credentials or the local assessment token to repository secrets as a shortcut. Kubernetes rollback should select a previously verified image digest and rerun rollout/cloud checks; this workflow does not yet automate that rollout.
 
 ## Verified release
 

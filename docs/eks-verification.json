@@ -1,0 +1,114 @@
+{
+  "verified_at_utc": "2026-10-27T03:30:31.633931+00:00",
+  "cluster": "anthony-assessment4-eks",
+  "namespace": "proppilot",
+  "terraform_apply": {
+    "added": 17,
+    "changed": 0,
+    "destroyed": 0
+  },
+  "identities": {
+    "category": {
+      "method": "container-role",
+      "arn": "arn:aws:sts::388691194728:assumed-role/anthony-proppilot-category-runtime/eks-anthony-as-category-5-f19a2f1b-f011-4991-bb86-be196cd61f9a"
+    },
+    "urgency": {
+      "method": "container-role",
+      "arn": "arn:aws:sts::388691194728:assumed-role/anthony-proppilot-urgency-runtime/eks-anthony-as-urgency-6f-d494c9f0-0715-4247-a01a-4ba3672a476d"
+    },
+    "agent": {
+      "method": "container-role",
+      "arn": "arn:aws:sts::388691194728:assumed-role/anthony-proppilot-agent-runtime/eks-anthony-as-agent-75d4-556486c7-d60e-4581-921c-520b6372da77"
+    },
+    "tickets": {
+      "method": "container-role",
+      "arn": "arn:aws:sts::388691194728:assumed-role/anthony-proppilot-tickets-runtime/eks-anthony-as-tickets-76-7e27837a-0ec7-4e13-a29b-653f1d2ef206"
+    }
+  },
+  "pods": [
+    {
+      "name": "agent-75d4f9f87b-dvsbp",
+      "ready": true,
+      "restarts": 0,
+      "image": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-agent@sha256:6ad361f21bac4d37a6dc047c8cf1a2fc7ca5d951d04bce24e9150faa8548a88b"
+    },
+    {
+      "name": "category-59667f489d-82s82",
+      "ready": true,
+      "restarts": 0,
+      "image": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-category@sha256:5c1be52c77d6383c6e0dffeccc08abd23ea8b84941e133088bab6eaef6735efe"
+    },
+    {
+      "name": "frontend-9844c4678-6k4wl",
+      "ready": true,
+      "restarts": 0,
+      "image": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-frontend@sha256:b2fe0cef5c7d1680ceb173e04fcb69aa5ab97e7ef2d03e756f948d3e24ec306a"
+    },
+    {
+      "name": "tickets-76b584d7f5-g6zqw",
+      "ready": true,
+      "restarts": 0,
+      "image": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-tickets@sha256:98137f3b880033e305d2dbacb8cc17e5fe2eade9b6fdf01adad78b7d651f6b9f"
+    },
+    {
+      "name": "urgency-6fd4b8f469-96s8r",
+      "ready": true,
+      "restarts": 0,
+      "image": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-urgency@sha256:def3fd2a2af774a62396ef9f1a89aa760973f6737eec56aa5de2195a84992ae8"
+    }
+  ],
+  "static_aws_credentials_in_pods": false,
+  "access": "localhost port-forward only",
+  "limits": [
+    "Manual deployment; automated cloud rollout remains pending",
+    "Single replicas, no tenant authentication",
+    "Startup probe connection-refused events occurred before two APIs began listening; all pods became ready with zero restarts"
+  ],
+  "existing_deployments_available_after_verification": [
+    {
+      "namespace": "amazon-cloudwatch",
+      "deployment": "amazon-cloudwatch-observability-controller-manager",
+      "desired": 1,
+      "available": 1
+    },
+    {
+      "namespace": "forecasting-team",
+      "deployment": "forecasting-service",
+      "desired": 2,
+      "available": 2
+    },
+    {
+      "namespace": "fraud-team",
+      "deployment": "fraud-service",
+      "desired": 1,
+      "available": 1
+    },
+    {
+      "namespace": "kube-system",
+      "deployment": "coredns",
+      "desired": 2,
+      "available": 2
+    },
+    {
+      "namespace": "platform-team",
+      "deployment": "frontend-service",
+      "desired": 1,
+      "available": 1
+    },
+    {
+      "namespace": "platform-team",
+      "deployment": "gateway-service",
+      "desired": 1,
+      "available": 1
+    },
+    {
+      "namespace": "recommendations-team",
+      "deployment": "recommendations-service",
+      "desired": 2,
+      "available": 2
+    }
+  ],
+  "runtime_plan_exit_code": 0,
+  "real_browser_verification": "eks-browser-verification.json",
+  "real_browser_result": "passed: both SageMaker providers, persisted reviewed ticket, reload and resolved version 3"
+}

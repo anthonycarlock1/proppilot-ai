@@ -172,11 +172,12 @@ test("real browser request reaches Bedrock and SageMaker", async ({ page }) => {
   const persistedTicket=await persistedResponse.json(); expect(persistedTicket.status).toBe('resolved');
   expect(persistedTicket.version).toBe(3);
   await writeFile(
-    "../docs/frontend-verification.json",
+    process.env.PROPPILOT_EVIDENCE_PATH || "../docs/frontend-verification.json",
     JSON.stringify(
       {
         verified_at_utc: new Date().toISOString(),
         frontend_url: process.env.FRONTEND_URL || "http://127.0.0.1:5173",
+        deployment_base_url: process.env.FRONTEND_URL || "http://127.0.0.1:5173",
         path: "Chrome -> React -> frontend proxy -> Bedrock/LangChain -> category and urgency APIs -> two SageMaker endpoints",
         result,
         persisted_ticket: persistedTicket,
