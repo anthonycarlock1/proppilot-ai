@@ -1,0 +1,85 @@
+{
+  "verified_at_utc": "2026-10-27T03:17:15.683126+00:00",
+  "run_url": "https://github.com/anthonycarlock1/proppilot-ai/actions/runs/40442879961",
+  "commit": "bbaee25105c6b4c9e8d8d49a65d904695ef6f269",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "ml-and-tickets",
+      "conclusion": "success"
+    },
+    {
+      "name": "frontend",
+      "conclusion": "success"
+    },
+    {
+      "name": "agent",
+      "conclusion": "success"
+    },
+    {
+      "name": "publish (frontend)",
+      "conclusion": "success"
+    },
+    {
+      "name": "publish (tickets)",
+      "conclusion": "success"
+    },
+    {
+      "name": "publish (agent)",
+      "conclusion": "success"
+    },
+    {
+      "name": "publish (urgency)",
+      "conclusion": "success"
+    },
+    {
+      "name": "publish (category)",
+      "conclusion": "success"
+    },
+    {
+      "name": "verify-published",
+      "conclusion": "success"
+    }
+  ],
+  "images": {
+    "category": {
+      "tag": "ghcr.io/anthonycarlock1/proppilot-ai-category:sha-bbaee25105c6b4c9e8d8d49a65d904695ef6f269",
+      "digest": "ghcr.io/anthonycarlock1/proppilot-ai-category@sha256:058a49480dc24f8081bc29adafdab2d41d9842c24cf7f465e7da5ef1f54eaa85",
+      "revision": "bbaee25105c6b4c9e8d8d49a65d904695ef6f269"
+    },
+    "urgency": {
+      "tag": "ghcr.io/anthonycarlock1/proppilot-ai-urgency:sha-bbaee25105c6b4c9e8d8d49a65d904695ef6f269",
+      "digest": "ghcr.io/anthonycarlock1/proppilot-ai-urgency@sha256:9bba2ff417e07d97c448686c594c747236c23f613d879cc585cad0913da91323",
+      "revision": "bbaee25105c6b4c9e8d8d49a65d904695ef6f269"
+    },
+    "tickets": {
+      "tag": "ghcr.io/anthonycarlock1/proppilot-ai-tickets:sha-bbaee25105c6b4c9e8d8d49a65d904695ef6f269",
+      "digest": "ghcr.io/anthonycarlock1/proppilot-ai-tickets@sha256:3103e2b989c87390608c2f732953140021634f924f9cbcec4c1a3e8a52343de9",
+      "revision": "bbaee25105c6b4c9e8d8d49a65d904695ef6f269"
+    },
+    "agent": {
+      "tag": "ghcr.io/anthonycarlock1/proppilot-ai-agent:sha-bbaee25105c6b4c9e8d8d49a65d904695ef6f269",
+      "digest": "ghcr.io/anthonycarlock1/proppilot-ai-agent@sha256:3f32a1ecb30619f8250a47e4017647a7049191650cf393fc0db742837f9202d5",
+      "revision": "bbaee25105c6b4c9e8d8d49a65d904695ef6f269"
+    },
+    "frontend": {
+      "tag": "ghcr.io/anthonycarlock1/proppilot-ai-frontend:sha-bbaee25105c6b4c9e8d8d49a65d904695ef6f269",
+      "digest": "ghcr.io/anthonycarlock1/proppilot-ai-frontend@sha256:19c5c63fb0baba2dc9304ec376adad6d5bcba519a86b8ddc1c3414e05a154ac4",
+      "revision": "bbaee25105c6b4c9e8d8d49a65d904695ef6f269"
+    }
+  },
+  "checks": {
+    "python_tests": 29,
+    "deterministic_browser_tests_before_publication": 6,
+    "deterministic_browser_tests_on_published_images": 6,
+    "actual_local_prediction_smokes": true,
+    "nginx_to_agent_http": true,
+    "all_five_containers_healthy": true,
+    "temporary_deployment_removed": true
+  },
+  "limits": [
+    "No working AWS credentials in this run",
+    "Browser cloud/ticket responses mocked; real local predictions separately checked",
+    "No EKS deployment or live AWS post-deployment verification yet"
+  ]
+}
