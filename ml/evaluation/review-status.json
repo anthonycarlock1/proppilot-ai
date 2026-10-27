@@ -1,0 +1,16 @@
+{
+  "category_rule_review": {
+    "reviewer": "Anthony Carlock",
+    "date": "2026-10-27",
+    "approved_rules": {
+      "AC drain leaks": "hvac",
+      "roof leaks": "general",
+      "water-heater failures": "plumbing"
+    },
+    "scope": "These three provisional category rules only; not approval of every example or operational readiness"
+  },
+  "urgency_policy_review": "User response pending",
+  "individual_seed_case_review": "Pending",
+  "individual_challenge_case_review": "Pending",
+  "independently_authored_blind_test": "Not yet available"
+}

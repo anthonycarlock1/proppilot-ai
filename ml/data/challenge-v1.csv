@@ -1,0 +1,33 @@
+id,text,category,urgency
+challenge-hvac-01,"The thermostat faceplate is scratched, but its readings and temperature control work normally.",hvac,low
+challenge-hvac-02,The ventilation grille paint is flaking; airflow and room temperatures are unchanged.,hvac,low
+challenge-hvac-03,The bedroom air vent damper is jammed closed; the other rooms still receive conditioned air and no hazard is reported.,hvac,medium
+challenge-hvac-04,The AC condensate drain leaves a small contained puddle in its catch tray; cooling still works and water is not spreading.,hvac,medium
+challenge-hvac-05,During freezing weather the occupied apartment has no heat because the boiler stopped working.,hvac,high
+challenge-hvac-06,The cooling system failed this afternoon and the occupied upstairs rooms are becoming excessively hot.,hvac,high
+challenge-hvac-07,There are flames coming out of the air-handler cabinet right now.,hvac,emergency
+challenge-hvac-08,Thick smoke is pouring from the operating furnace into the occupied hallway.,hvac,emergency
+challenge-plumbing-01,"The decorative faucet cap has faded, but the tap operates normally without any leak.",plumbing,low
+challenge-plumbing-02,The toilet seat has a surface scratch; it is secure and the toilet works normally.,plumbing,low
+challenge-plumbing-03,"The bathroom basin drains slowly, but it is usable and no water is overflowing.",plumbing,medium
+challenge-plumbing-04,A drain joint drips occasionally into a bucket; the drip is contained and the sink remains usable.,plumbing,medium
+challenge-plumbing-05,The building water supply has failed and no occupied unit has running water.,plumbing,high
+challenge-plumbing-06,The sole water heater has stopped supplying hot water to the occupied building during cold weather.,plumbing,high
+challenge-plumbing-07,A ruptured supply line is rapidly flooding the occupied kitchen and the water is still flowing.,plumbing,emergency
+challenge-plumbing-08,Sewage is actively overflowing from the toilet and spreading across the occupied apartment.,plumbing,emergency
+challenge-electrical-01,The light switch cover has a cosmetic scratch; the switch and lights function normally.,electrical,low
+challenge-electrical-02,"A socket faceplate is discolored from old paint, with no heat, damage or loss of function.",electrical,low
+challenge-electrical-03,One installed reading light will not turn on; the other lights work and there is no heat or smoke.,electrical,medium
+challenge-electrical-04,"The hallway dimmer no longer adjusts brightness, but the light stays on normally with no reported hazard.",electrical,medium
+challenge-electrical-05,The main circuit has failed and the occupied house has no working lights or electrical outlets.,electrical,high
+challenge-electrical-06,Repeated breaker trips have left the entire occupied apartment without electricity; there is no reported smoke or sparking.,electrical,high
+challenge-electrical-07,The breaker cabinet is smoking and its wiring is visibly glowing red right now.,electrical,emergency
+challenge-electrical-08,An exposed live cable is throwing sparks across the occupied entryway.,electrical,emergency
+challenge-general-01,There is a small paint scuff on the bedroom wall and the wall is otherwise sound.,general,low
+challenge-general-02,A kitchen cabinet handle has a cosmetic scratch; the handle and door are firmly attached and work normally.,general,low
+challenge-general-03,A single window insect screen is torn; the window itself closes and locks securely.,general,medium
+challenge-general-04,Rainwater seeps slowly through the roof into one bucket; the leak is contained and no sagging or electrical contact is reported.,general,medium
+challenge-general-05,The front entrance latch has broken and the occupied property cannot be secured.,general,high
+challenge-general-06,"The only exterior access door is jammed shut, preventing normal use; another safe exit remains available.",general,high
+challenge-general-07,Large sections of the ceiling are actively collapsing onto the occupied living-room floor.,general,emergency
+challenge-general-08,The exterior stair landing is breaking apart while people are standing on it.,general,emergency

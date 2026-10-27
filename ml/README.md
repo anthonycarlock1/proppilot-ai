@@ -24,3 +24,7 @@ The category model is now hosted through its FastAPI wrapper and SageMaker endpo
 ## Urgency baseline
 
 Run `.venv/bin/python ml/training/train_urgency.py` to train the independent urgency model. It writes `ml/artifacts/urgency-v0.1.0.joblib` and `ml/evaluation/urgency-baseline.json`. The report includes emergency recall and under-prioritization counts as well as classification metrics. Read [urgency dataset policy](data/urgency-README.md) and [urgency API instructions](../services/urgency/README.md) before interpreting or using it. Its 16-example synthetic holdout is not operational validation.
+
+## Additional frozen-baseline diagnostic
+
+See [the model review](../docs/model-review.md), [frozen protocol](evaluation/challenge-protocol.md) and [results](evaluation/challenge-v1-report.md). Run `.venv/bin/python ml/evaluation/evaluate_challenge.py` against existing trusted artifacts. The 32 labeled and eight unscored AI-authored cases do not constitute independent or human-validated evaluation. No deployed models were retrained for this diagnostic.
