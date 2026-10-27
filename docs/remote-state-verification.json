@@ -1,0 +1,90 @@
+{
+  "verified_at_utc": "2026-10-27T03:04:53.347234+00:00",
+  "bucket": "anthony-proppilot-tfstate-388691194728",
+  "region": "us-east-1",
+  "bootstrap_apply": {
+    "added": 6,
+    "changed": 0,
+    "destroyed": 0
+  },
+  "roots": {
+    "registry": {
+      "key": "proppilot/registry/terraform.tfstate",
+      "lineage_preserved": false,
+      "serial_preserved": false,
+      "resource_snapshot_preserved": true,
+      "outputs_preserved": true,
+      "resource_addresses_preserved": true,
+      "managed_resources": 2,
+      "plan_exit_code": 0,
+      "state_versioning_verified": true,
+      "state_encryption": "AES256"
+    },
+    "hosting": {
+      "key": "proppilot/hosting/terraform.tfstate",
+      "lineage_preserved": false,
+      "serial_preserved": false,
+      "resource_snapshot_preserved": true,
+      "outputs_preserved": true,
+      "resource_addresses_preserved": true,
+      "managed_resources": 5,
+      "plan_exit_code": 0,
+      "state_versioning_verified": true,
+      "state_encryption": "AES256"
+    },
+    "urgency-hosting": {
+      "key": "proppilot/urgency-hosting/terraform.tfstate",
+      "lineage_preserved": false,
+      "serial_preserved": false,
+      "resource_snapshot_preserved": true,
+      "outputs_preserved": true,
+      "resource_addresses_preserved": true,
+      "managed_resources": 5,
+      "plan_exit_code": 0,
+      "state_versioning_verified": true,
+      "state_encryption": "AES256"
+    },
+    "tickets": {
+      "key": "proppilot/tickets/terraform.tfstate",
+      "lineage_preserved": false,
+      "serial_preserved": false,
+      "resource_snapshot_preserved": true,
+      "outputs_preserved": true,
+      "resource_addresses_preserved": true,
+      "managed_resources": 1,
+      "plan_exit_code": 0,
+      "state_versioning_verified": true,
+      "state_encryption": "AES256"
+    },
+    "state-backend": {
+      "key": "proppilot/state-backend/terraform.tfstate",
+      "lineage_preserved": false,
+      "serial_preserved": false,
+      "resource_snapshot_preserved": true,
+      "outputs_preserved": true,
+      "resource_addresses_preserved": true,
+      "managed_resources": 6,
+      "plan_exit_code": 0,
+      "state_versioning_verified": true,
+      "state_encryption": "AES256"
+    }
+  },
+  "bucket_protection": {
+    "versioning": "Enabled",
+    "public_access_block": {
+      "BlockPublicAcls": true,
+      "IgnorePublicAcls": true,
+      "BlockPublicPolicy": true,
+      "RestrictPublicBuckets": true
+    },
+    "ownership": "BucketOwnerEnforced",
+    "tls_deny_policy_verified": true
+  },
+  "locking_verification": {
+    "method": "First Terraform refresh-only apply held at confirmation; competing plan rejected, first apply declined",
+    "competing_plan_rejected": true,
+    "temporary_output_applied": false,
+    "lock_released": true,
+    "note": "Read-only console did not retain the lock; contention test used an actual pending Terraform operation."
+  }
+}

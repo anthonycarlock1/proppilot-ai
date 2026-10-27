@@ -21,7 +21,7 @@ The registry plan added one repository; the separate hosting plan adds five reso
 2. Build from the project root: `docker build --platform linux/amd64 --provenance=false -f ml/serving/urgency.Dockerfile -t proppilot-urgency-hosting:dev .`.
 3. Test the image's port 8080 `/ping` and `/invocations` contract locally. It accepts `serve`, runs its baked-in model locally, and never invokes another endpoint. The image uses root as required by the SageMaker container contract; application wrappers run non-root.
 4. Authenticate Docker to ECR with a password pipe, push a unique immutable release tag, and read its registry digest. Never put credentials in source or build layers.
-5. In `terraform/urgency-hosting`, run `terraform init`, then `terraform plan -var='image_uri=<urgency-repository@sha256:digest>' -out=hosting.tfplan`. Review the plan and apply the saved file. Keep local state safe and outside Git.
+5. In `terraform/urgency-hosting`, run `terraform init`, then `terraform plan -var='image_uri=<urgency-repository@sha256:digest>' -out=hosting.tfplan`. Review the plan and apply the saved file. State is stored in the protected S3 backend; see [state and recovery](terraform-state.md). Keep state and plans outside Git.
 6. Wait for endpoint InService. Run `.venv/bin/python scripts/verify_sagemaker_urgency.py` from the project root. It tests all four labels through the wrapper against real SageMaker, plus escalation without changing the original model output. The samples verify integration, not generalization.
 
 ## Local cloud-integrated processes

@@ -49,3 +49,5 @@ The adapter has a 3-second connection timeout, 70-second read timeout, and no au
 Inspect a destroy plan in `terraform/hosting` before destroying only this project's endpoint/model/configuration/role. Supply the same image URI when Terraform requests it. Preserve evidence first. Then explicitly remove only this project's ECR image versions before reviewing a destroy plan in `terraform/registry`; repository force deletion is disabled. Do not destroy earlier assessment or class resources.
 
 Repeat real-cloud verification from the project root with `.venv/bin/python scripts/verify_sagemaker_category.py`. It requires authorized AWS credentials and `httpx==0.28.1` for FastAPI TestClient. The saved evidence identifies the actual path: an in-process HTTP test client invoking the wrapper, followed by real SageMaker Runtime calls. It does not claim Kubernetes, browser, or Bedrock integration.
+
+Terraform now uses [protected remote state](terraform-state.md). A fresh checkout runs normal `terraform init`; existing local-state owners must follow the migration procedure rather than initialize an empty replacement state.
