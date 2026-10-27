@@ -1,0 +1,36 @@
+{
+  "verified_at_utc": "2026-10-27T02:21:19.889102+00:00",
+  "storage": "real DynamoDB",
+  "ticket": {
+    "description": "My tenant says the air conditioner has stopped cooling and the house is very hot. What should I do?",
+    "confirm_reviewed": true,
+    "status": "resolved",
+    "assessment": {
+      "escalation_reasons": [],
+      "recommended_priority": "high",
+      "confirmed_hazards": [],
+      "category": "hvac",
+      "policy_version": "0.1.0",
+      "manual_review_required": true,
+      "category_provider": "sagemaker",
+      "urgency_provider": "sagemaker",
+      "category_model_version": "0.1.0",
+      "urgency": "high",
+      "urgency_model_version": "0.1.0"
+    },
+    "unit": "QA",
+    "assessment_id": "b5f9a2c5-3882-4c24-8354-2014ea14dca4",
+    "created_at": "2026-10-27T02:21:18.247931+00:00",
+    "ticket_id": "PP-20261027022118247755-91fe09a1",
+    "property_label": "Portfolio API Verification (fictional)",
+    "updated_at": "2026-10-27T02:21:19.341939+00:00",
+    "version": 3
+  },
+  "concurrent_confirmations": 3,
+  "unique_tickets": 1,
+  "same_key_changed_payload_rejected": true,
+  "second_key_same_assessment_rejected": true,
+  "stale_update_rejected": true,
+  "fresh_store_read_persisted": true,
+  "note": "Fictional verification ticket intentionally retained as resolved; no existing records deleted."
+}

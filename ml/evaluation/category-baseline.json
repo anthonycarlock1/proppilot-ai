@@ -1,0 +1,178 @@
+{
+  "dataset": "ml/data/category_seed.csv",
+  "dataset_sha256": "0ff2c284841b8d3c453ed95c9b58fac97306289ae0685cb5eda50f46a3c307f4",
+  "data_origin": "AI-authored synthetic seed; human review pending",
+  "limitations": "Small synthetic holdout; not evidence of real-world reliability. Do not tune against this holdout.",
+  "sklearn_version": "1.6.1",
+  "train_count": 48,
+  "test_count": 16,
+  "labels": [
+    "hvac",
+    "plumbing",
+    "electrical",
+    "general"
+  ],
+  "classification_report": {
+    "hvac": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 4.0
+    },
+    "plumbing": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1-score": 0.8,
+      "support": 4.0
+    },
+    "electrical": {
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1-score": 0.8888888888888888,
+      "support": 4.0
+    },
+    "general": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1-score": 0.8571428571428571,
+      "support": 4.0
+    },
+    "accuracy": 0.8125,
+    "macro avg": {
+      "precision": 0.8666666666666667,
+      "recall": 0.8125,
+      "f1-score": 0.8031746031746032,
+      "support": 16.0
+    },
+    "weighted avg": {
+      "precision": 0.8666666666666667,
+      "recall": 0.8125,
+      "f1-score": 0.8031746031746032,
+      "support": 16.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      2,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      3
+    ]
+  ],
+  "predictions": [
+    {
+      "id": "hvac-test-01",
+      "text": "Water is dripping from the air conditioner drain pan.",
+      "expected": "hvac",
+      "predicted": "plumbing"
+    },
+    {
+      "id": "hvac-test-02",
+      "text": "There is a burning smell when the furnace turns on.",
+      "expected": "hvac",
+      "predicted": "electrical"
+    },
+    {
+      "id": "hvac-test-03",
+      "text": "The central air conditioner has stopped cooling during hot weather.",
+      "expected": "hvac",
+      "predicted": "hvac"
+    },
+    {
+      "id": "hvac-test-04",
+      "text": "The thermostat keeps changing the heating schedule on its own.",
+      "expected": "hvac",
+      "predicted": "hvac"
+    },
+    {
+      "id": "plumbing-test-01",
+      "text": "Sewage is coming up through the basement floor drain.",
+      "expected": "plumbing",
+      "predicted": "plumbing"
+    },
+    {
+      "id": "plumbing-test-02",
+      "text": "There is a hammering sound in the water pipes after using the sink.",
+      "expected": "plumbing",
+      "predicted": "plumbing"
+    },
+    {
+      "id": "plumbing-test-03",
+      "text": "The shower faucet delivers only cold water.",
+      "expected": "plumbing",
+      "predicted": "plumbing"
+    },
+    {
+      "id": "plumbing-test-04",
+      "text": "The toilet base is leaking onto the bathroom floor.",
+      "expected": "plumbing",
+      "predicted": "plumbing"
+    },
+    {
+      "id": "electrical-test-01",
+      "text": "A burning smell is coming from an electrical outlet.",
+      "expected": "electrical",
+      "predicted": "electrical"
+    },
+    {
+      "id": "electrical-test-02",
+      "text": "The breaker will not stay on even with everything unplugged.",
+      "expected": "electrical",
+      "predicted": "electrical"
+    },
+    {
+      "id": "electrical-test-03",
+      "text": "The kitchen light switch gives me a small shock.",
+      "expected": "electrical",
+      "predicted": "electrical"
+    },
+    {
+      "id": "electrical-test-04",
+      "text": "The porch light fills with rainwater and shorts the circuit.",
+      "expected": "electrical",
+      "predicted": "electrical"
+    },
+    {
+      "id": "general-test-01",
+      "text": "Rain is leaking through damaged roof flashing.",
+      "expected": "general",
+      "predicted": "plumbing"
+    },
+    {
+      "id": "general-test-02",
+      "text": "The front door does not latch because the frame has shifted.",
+      "expected": "general",
+      "predicted": "general"
+    },
+    {
+      "id": "general-test-03",
+      "text": "The bedroom carpet is lifting and creating a trip hazard.",
+      "expected": "general",
+      "predicted": "general"
+    },
+    {
+      "id": "general-test-04",
+      "text": "The window screen is torn and lets insects inside.",
+      "expected": "general",
+      "predicted": "general"
+    }
+  ]
+}

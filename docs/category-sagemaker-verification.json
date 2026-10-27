@@ -1,0 +1,70 @@
+{
+  "verified_at_utc": "2026-10-23T01:56:21.898537+00:00",
+  "account_id": "388691194728",
+  "region": "us-east-1",
+  "endpoint": "anthony-proppilot-category-v010",
+  "endpoint_status": "InService",
+  "path": "FastAPI TestClient -> wrapper -> real SageMaker Runtime -> hosted model",
+  "predictions": [
+    {
+      "text": "The air conditioner is not cooling.",
+      "expected": "hvac",
+      "result": {
+        "category": "hvac",
+        "probabilities": {
+          "electrical": 0.19235208198934037,
+          "general": 0.19659737315556955,
+          "hvac": 0.4012541177600611,
+          "plumbing": 0.20979642709502905
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker"
+      }
+    },
+    {
+      "text": "The toilet is clogged.",
+      "expected": "plumbing",
+      "result": {
+        "category": "plumbing",
+        "probabilities": {
+          "electrical": 0.1994398873301744,
+          "general": 0.2148587087385942,
+          "hvac": 0.23491322050885297,
+          "plumbing": 0.35078818342237844
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker"
+      }
+    },
+    {
+      "text": "The electrical outlet is sparking.",
+      "expected": "electrical",
+      "result": {
+        "category": "electrical",
+        "probabilities": {
+          "electrical": 0.3531200458318217,
+          "general": 0.22974040864687548,
+          "hvac": 0.21402543092395576,
+          "plumbing": 0.20311411459734713
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker"
+      }
+    },
+    {
+      "text": "The front door lock is broken.",
+      "expected": "general",
+      "result": {
+        "category": "general",
+        "probabilities": {
+          "electrical": 0.20452346230569707,
+          "general": 0.3935784665680132,
+          "hvac": 0.2057870651635001,
+          "plumbing": 0.19611100596278963
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker"
+      }
+    }
+  ]
+}

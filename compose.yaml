@@ -1,0 +1,68 @@
+x-aws: &aws
+  AWS_REGION: ${AWS_REGION:-us-east-1}
+  AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+  AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+  AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+  AWS_EC2_METADATA_DISABLED: "true"
+
+services:
+  category:
+    build:
+      context: .
+      dockerfile: services/category/Dockerfile
+    image: proppilot-category:dev
+    environment:
+      MODEL_PROVIDER: local
+    ports:
+      - "127.0.0.1:8001:8000"
+  urgency:
+    build:
+      context: .
+      dockerfile: services/urgency/Dockerfile
+    image: proppilot-urgency:dev
+    environment:
+      MODEL_PROVIDER: local
+    ports:
+      - "127.0.0.1:8002:8000"
+  tickets:
+    build:
+      context: .
+      dockerfile: services/tickets/Dockerfile
+    image: proppilot-tickets:dev
+    environment:
+      <<: *aws
+      TICKETS_TABLE: ${TICKETS_TABLE:-anthony-proppilot-tickets}
+      ASSESSMENT_WRITE_TOKEN: ${ASSESSMENT_WRITE_TOKEN:-}
+  agent:
+    build:
+      context: .
+      dockerfile: services/agent/Dockerfile
+    image: proppilot-agent:dev
+    environment:
+      <<: *aws
+      BEDROCK_MODEL_ID: ${BEDROCK_MODEL_ID:-amazon.nova-lite-v1:0}
+      CATEGORY_SERVICE_URL: http://category:8000
+      URGENCY_SERVICE_URL: http://urgency:8000
+      TICKETS_SERVICE_URL: http://tickets:8000
+      ASSESSMENT_WRITE_TOKEN: ${ASSESSMENT_WRITE_TOKEN:-}
+    depends_on:
+      category:
+        condition: service_healthy
+      urgency:
+        condition: service_healthy
+      tickets:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8004:8000"
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    image: proppilot-frontend:dev
+    environment:
+      AGENT_UPSTREAM: agent:8000
+    depends_on:
+      agent:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:8080"

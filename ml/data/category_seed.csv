@@ -1,0 +1,65 @@
+id,scenario_group,text,category,split
+hvac-train-01,hvac-train-01,The air conditioner is running but the rooms stay warm.,hvac,train
+hvac-train-02,hvac-train-02,The furnace will not ignite and there is no heat.,hvac,train
+hvac-train-03,hvac-train-03,The thermostat display is blank and heating will not start.,hvac,train
+hvac-train-04,hvac-train-04,Air barely comes out of the bedroom ventilation duct.,hvac,train
+hvac-train-05,hvac-train-05,The heat pump is making a loud rattling sound.,hvac,train
+hvac-train-06,hvac-train-06,The AC filter is clogged and needs replacement.,hvac,train
+hvac-train-07,hvac-train-07,The heating system blows cold air through every vent.,hvac,train
+hvac-train-08,hvac-train-08,The outdoor condenser fan stopped spinning.,hvac,train
+hvac-train-09,hvac-train-09,The air handler is vibrating whenever cooling starts.,hvac,train
+hvac-train-10,hvac-train-10,The thermostat temperature does not match the room temperature.,hvac,train
+hvac-train-11,hvac-train-11,The furnace switches off a minute after starting.,hvac,train
+hvac-train-12,hvac-train-12,The air conditioning refrigerant line is covered in ice.,hvac,train
+hvac-test-01,hvac-test-01,Water is dripping from the air conditioner drain pan.,hvac,test
+hvac-test-02,hvac-test-02,There is a burning smell when the furnace turns on.,hvac,test
+hvac-test-03,hvac-test-03,The central air conditioner has stopped cooling during hot weather.,hvac,test
+hvac-test-04,hvac-test-04,The thermostat keeps changing the heating schedule on its own.,hvac,test
+plumbing-train-01,plumbing-train-01,The kitchen faucet keeps dripping after I close it.,plumbing,train
+plumbing-train-02,plumbing-train-02,The toilet is clogged and water will not drain.,plumbing,train
+plumbing-train-03,plumbing-train-03,A pipe underneath the bathroom sink is leaking.,plumbing,train
+plumbing-train-04,plumbing-train-04,The shower has very low water pressure.,plumbing,train
+plumbing-train-05,plumbing-train-05,The water heater is not producing hot water.,plumbing,train
+plumbing-train-06,plumbing-train-06,The bathtub drain is blocked with standing water.,plumbing,train
+plumbing-train-07,plumbing-train-07,The toilet tank runs continuously after flushing.,plumbing,train
+plumbing-train-08,plumbing-train-08,A supply pipe burst and water is flooding the basement.,plumbing,train
+plumbing-train-09,plumbing-train-09,The bathroom faucet handle leaks whenever it is opened.,plumbing,train
+plumbing-train-10,plumbing-train-10,The kitchen sink drain backs up when washing dishes.,plumbing,train
+plumbing-train-11,plumbing-train-11,The water heater tank has a puddle underneath it.,plumbing,train
+plumbing-train-12,plumbing-train-12,The outdoor hose connection leaks from its valve.,plumbing,train
+plumbing-test-01,plumbing-test-01,Sewage is coming up through the basement floor drain.,plumbing,test
+plumbing-test-02,plumbing-test-02,There is a hammering sound in the water pipes after using the sink.,plumbing,test
+plumbing-test-03,plumbing-test-03,The shower faucet delivers only cold water.,plumbing,test
+plumbing-test-04,plumbing-test-04,The toilet base is leaking onto the bathroom floor.,plumbing,test
+electrical-train-01,electrical-train-01,The breaker trips every time I use the microwave.,electrical,train
+electrical-train-02,electrical-train-02,An electrical outlet sparks when I plug in a charger.,electrical,train
+electrical-train-03,electrical-train-03,The hallway lights flicker when switched on.,electrical,train
+electrical-train-04,electrical-train-04,The light switch feels hot to the touch.,electrical,train
+electrical-train-05,electrical-train-05,There is no power at any of the bedroom sockets.,electrical,train
+electrical-train-06,electrical-train-06,The circuit breaker panel is making a buzzing noise.,electrical,train
+electrical-train-07,electrical-train-07,An exposed electrical wire is hanging from the wall.,electrical,train
+electrical-train-08,electrical-train-08,The bathroom GFCI outlet will not reset.,electrical,train
+electrical-train-09,electrical-train-09,The ceiling light fixture no longer turns on.,electrical,train
+electrical-train-10,electrical-train-10,The wall socket is cracked and has burn marks.,electrical,train
+electrical-train-11,electrical-train-11,Several rooms lost electricity but the neighbors have power.,electrical,train
+electrical-train-12,electrical-train-12,The dimmer switch makes the lights pulse constantly.,electrical,train
+electrical-test-01,electrical-test-01,A burning smell is coming from an electrical outlet.,electrical,test
+electrical-test-02,electrical-test-02,The breaker will not stay on even with everything unplugged.,electrical,test
+electrical-test-03,electrical-test-03,The kitchen light switch gives me a small shock.,electrical,test
+electrical-test-04,electrical-test-04,The porch light fills with rainwater and shorts the circuit.,electrical,test
+general-train-01,general-train-01,The front door lock sticks and the key is hard to turn.,general,train
+general-train-02,general-train-02,The bedroom window glass is cracked.,general,train
+general-train-03,general-train-03,A roof shingle came loose during the storm.,general,train
+general-train-04,general-train-04,The living room wall needs a patch for a drywall hole.,general,train
+general-train-05,general-train-05,The kitchen cabinet hinge is broken.,general,train
+general-train-06,general-train-06,The carpet is torn near the hallway entrance.,general,train
+general-train-07,general-train-07,The fence gate is sagging and scrapes the ground.,general,train
+general-train-08,general-train-08,The bathroom tile grout is crumbling.,general,train
+general-train-09,general-train-09,The sliding patio door has fallen off its track.,general,train
+general-train-10,general-train-10,The exterior paint is peeling from the siding.,general,train
+general-train-11,general-train-11,The stair handrail is loose and needs fastening.,general,train
+general-train-12,general-train-12,There are cockroaches in the pantry cabinet.,general,train
+general-test-01,general-test-01,Rain is leaking through damaged roof flashing.,general,test
+general-test-02,general-test-02,The front door does not latch because the frame has shifted.,general,test
+general-test-03,general-test-03,The bedroom carpet is lifting and creating a trip hazard.,general,test
+general-test-04,general-test-04,The window screen is torn and lets insects inside.,general,test

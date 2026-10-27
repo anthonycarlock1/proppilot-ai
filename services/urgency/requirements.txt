@@ -1,0 +1,4 @@
+-r ../../ml/requirements.lock.txt
+fastapi==0.128.8
+uvicorn==0.34.3
+boto3==1.40.59

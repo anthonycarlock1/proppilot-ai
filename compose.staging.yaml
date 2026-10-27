@@ -1,0 +1,20 @@
+# Layer over compose.yaml; use existing AWS endpoints, never provision resources.
+services:
+  category:
+    environment:
+      MODEL_PROVIDER: sagemaker
+      CATEGORY_SAGEMAKER_ENDPOINT: ${CATEGORY_SAGEMAKER_ENDPOINT:-anthony-proppilot-category-v010}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+      AWS_EC2_METADATA_DISABLED: "true"
+  urgency:
+    environment:
+      MODEL_PROVIDER: sagemaker
+      URGENCY_SAGEMAKER_ENDPOINT: ${URGENCY_SAGEMAKER_ENDPOINT:-anthony-proppilot-urgency-v010}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+      AWS_EC2_METADATA_DISABLED: "true"

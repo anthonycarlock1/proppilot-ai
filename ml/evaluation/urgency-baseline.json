@@ -1,0 +1,197 @@
+{
+  "dataset": "ml/data/urgency_seed.csv",
+  "dataset_sha256": "eb2da6dc66aaf59b5e1c0d320da9e853b8aa438b3d974982793ada5fc7ee409c",
+  "data_origin": "AI-authored synthetic seed; human review pending",
+  "limitations": "Tiny synthetic holdout, with related issue types across splits; not evidence of real-world reliability or emergency detection safety. Do not tune against this holdout.",
+  "sklearn_version": "1.6.1",
+  "train_count": 64,
+  "test_count": 16,
+  "labels": [
+    "low",
+    "medium",
+    "high",
+    "emergency"
+  ],
+  "classification_report": {
+    "low": {
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1-score": 0.8888888888888888,
+      "support": 4.0
+    },
+    "medium": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1-score": 0.8571428571428571,
+      "support": 4.0
+    },
+    "high": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "emergency": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "accuracy": 0.9375,
+    "macro avg": {
+      "precision": 0.95,
+      "recall": 0.9375,
+      "f1-score": 0.9365079365079365,
+      "support": 16.0
+    },
+    "weighted avg": {
+      "precision": 0.95,
+      "recall": 0.9375,
+      "f1-score": 0.9365079365079365,
+      "support": 16.0
+    }
+  },
+  "emergency_recall": 1.0,
+  "under_prioritized_count": 1,
+  "severely_under_prioritized_count": 0,
+  "confusion_matrix": [
+    [
+      4,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      3,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      4
+    ]
+  ],
+  "predictions": [
+    {
+      "id": "low-test-01",
+      "text": "The bathroom cabinet paint is faded, but everything works.",
+      "expected": "low",
+      "predicted": "low",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "low-test-02",
+      "text": "There is a cosmetic mark on the thermostat casing and cooling works normally.",
+      "expected": "low",
+      "predicted": "low",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "low-test-03",
+      "text": "The bedroom wall has a minor paint scuff; repair can wait.",
+      "expected": "low",
+      "predicted": "low",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "low-test-04",
+      "text": "The pantry knob is scratched but secure and usable.",
+      "expected": "low",
+      "predicted": "low",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "medium-test-01",
+      "text": "The bathroom faucet has a slow drip contained in the sink, with no damage.",
+      "expected": "medium",
+      "predicted": "medium",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "medium-test-02",
+      "text": "The dishwasher stopped working but there is no water on the floor.",
+      "expected": "medium",
+      "predicted": "low",
+      "priority_steps_under": 1
+    },
+    {
+      "id": "medium-test-03",
+      "text": "One light bulb is out while the other room lights still work.",
+      "expected": "medium",
+      "predicted": "medium",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "medium-test-04",
+      "text": "The bathtub drain is slow but has not overflowed.",
+      "expected": "medium",
+      "predicted": "medium",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "high-test-01",
+      "text": "The furnace has failed during a cold spell and all rooms are losing heat.",
+      "expected": "high",
+      "predicted": "high",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "high-test-02",
+      "text": "The AC is not cooling and the indoor temperature keeps rising in hot weather.",
+      "expected": "high",
+      "predicted": "high",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "high-test-03",
+      "text": "There is no running water anywhere in the occupied property.",
+      "expected": "high",
+      "predicted": "high",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "high-test-04",
+      "text": "The front entry lock broke and we cannot secure the house.",
+      "expected": "high",
+      "predicted": "high",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "emergency-test-01",
+      "text": "Smoke and flames are coming out of the breaker panel.",
+      "expected": "emergency",
+      "predicted": "emergency",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "emergency-test-02",
+      "text": "A pipe burst and water is actively flooding the occupied house.",
+      "expected": "emergency",
+      "predicted": "emergency",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "emergency-test-03",
+      "text": "There is a strong gas smell by the water heater.",
+      "expected": "emergency",
+      "predicted": "emergency",
+      "priority_steps_under": 0
+    },
+    {
+      "id": "emergency-test-04",
+      "text": "The ceiling has started collapsing and debris is falling around residents.",
+      "expected": "emergency",
+      "predicted": "emergency",
+      "priority_steps_under": 0
+    }
+  ]
+}

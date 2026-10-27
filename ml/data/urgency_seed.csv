@@ -1,0 +1,81 @@
+id,scenario_group,text,urgency,split
+low-train-01,low-train-01,There is a small scuff on the hallway wall and it is only cosmetic.,low,train
+low-train-02,low-train-02,A cabinet handle is scratched but still works normally.,low,train
+low-train-03,low-train-03,Please repaint the faded trim when convenient; there is no damage.,low,train
+low-train-04,low-train-04,The window screen has a tiny tear but the window closes securely.,low,train
+low-train-05,low-train-05,A closet door squeaks a little but opens and closes safely.,low,train
+low-train-06,low-train-06,The carpet has a small cosmetic stain with no trip hazard.,low,train
+low-train-07,low-train-07,The mailbox paint is peeling but the box is secure and usable.,low,train
+low-train-08,low-train-08,One decorative tile is discolored and there is no water damage.,low,train
+low-train-09,low-train-09,The kitchen drawer knob is slightly loose but still usable.,low,train
+low-train-10,low-train-10,The towel rail finish is worn and I would like it refreshed eventually.,low,train
+low-train-11,low-train-11,A light cover is yellowed but the light works normally.,low,train
+low-train-12,low-train-12,The thermostat cover has a scratch; heating and cooling work fine.,low,train
+low-train-13,low-train-13,There is a shallow dent in the interior door with no functional problem.,low,train
+low-train-14,low-train-14,The faucet finish is tarnished but there is no leak.,low,train
+low-train-15,low-train-15,A fence panel needs routine repainting and is stable.,low,train
+low-train-16,low-train-16,The baseboard has a cosmetic chip; no one is at risk.,low,train
+low-test-01,low-test-01,"The bathroom cabinet paint is faded, but everything works.",low,test
+low-test-02,low-test-02,There is a cosmetic mark on the thermostat casing and cooling works normally.,low,test
+low-test-03,low-test-03,The bedroom wall has a minor paint scuff; repair can wait.,low,test
+low-test-04,low-test-04,The pantry knob is scratched but secure and usable.,low,test
+medium-train-01,medium-train-01,The kitchen faucet drips slowly into the sink; the drain works and there is no flooding.,medium,train
+medium-train-02,medium-train-02,The bathroom door handle sticks but the door opens without anyone getting trapped.,medium,train
+medium-train-03,medium-train-03,"One bedroom light is out, but the other lights work and there are no sparks.",medium,train
+medium-train-04,medium-train-04,The dishwasher will not start; there is no leak and we can wash dishes by hand.,medium,train
+medium-train-05,medium-train-05,The closet shelf is loose and empty; no one is underneath it.,medium,train
+medium-train-06,medium-train-06,The bathroom exhaust fan is noisy but there is no burning smell.,medium,train
+medium-train-07,medium-train-07,The toilet runs after flushing but flushes normally and is not overflowing.,medium,train
+medium-train-08,medium-train-08,The washing machine is broken but no water is leaking.,medium,train
+medium-train-09,medium-train-09,The oven timer display is broken but cooking still works.,medium,train
+medium-train-10,medium-train-10,A window blind is stuck open; the glass and lock are intact.,medium,train
+medium-train-11,medium-train-11,The sink drains slowly but does not back up or overflow.,medium,train
+medium-train-12,medium-train-12,The refrigerator ice maker stopped but the food compartment stays cold.,medium,train
+medium-train-13,medium-train-13,The garage remote does not work but the door can be opened manually.,medium,train
+medium-train-14,medium-train-14,The patio door roller sticks but the main exit is fully usable.,medium,train
+medium-train-15,medium-train-15,The kitchen drawer slides have broken and the drawer is removed safely.,medium,train
+medium-train-16,medium-train-16,A shower head drips slowly with no damage outside the tub.,medium,train
+medium-test-01,medium-test-01,"The bathroom faucet has a slow drip contained in the sink, with no damage.",medium,test
+medium-test-02,medium-test-02,The dishwasher stopped working but there is no water on the floor.,medium,test
+medium-test-03,medium-test-03,One light bulb is out while the other room lights still work.,medium,test
+medium-test-04,medium-test-04,The bathtub drain is slow but has not overflowed.,medium,test
+high-train-01,high-train-01,The air conditioner stopped cooling and the occupied house is getting very hot.,high,train
+high-train-02,high-train-02,There is no heat throughout the home during freezing weather.,high,train
+high-train-03,high-train-03,The front door lock will not secure the property tonight.,high,train
+high-train-04,high-train-04,"The only toilet is blocked and cannot be used, but it is not overflowing.",high,train
+high-train-05,high-train-05,The refrigerator stopped cooling and food is getting warm.,high,train
+high-train-06,high-train-06,The house has no running water at any faucet.,high,train
+high-train-07,high-train-07,The water heater stopped and the entire home has no hot water.,high,train
+high-train-08,high-train-08,Rain damaged the bedroom window and it cannot be closed or locked.,high,train
+high-train-09,high-train-09,A stair handrail is very loose and residents need to use the stairs.,high,train
+high-train-10,high-train-10,A ceiling patch is sagging from a leak but no material has fallen.,high,train
+high-train-11,high-train-11,"Several rooms have no electricity, with no smoke or sparks reported.",high,train
+high-train-12,high-train-12,The only working shower is broken and cannot be used.,high,train
+high-train-13,high-train-13,A roof leak is steadily damaging the bedroom during rain.,high,train
+high-train-14,high-train-14,The heating system failed and the indoor temperature is dropping rapidly.,high,train
+high-train-15,high-train-15,The exterior door frame is damaged and the home cannot be secured.,high,train
+high-train-16,high-train-16,The kitchen sink is completely blocked and unusable without overflowing.,high,train
+high-test-01,high-test-01,The furnace has failed during a cold spell and all rooms are losing heat.,high,test
+high-test-02,high-test-02,The AC is not cooling and the indoor temperature keeps rising in hot weather.,high,test
+high-test-03,high-test-03,There is no running water anywhere in the occupied property.,high,test
+high-test-04,high-test-04,The front entry lock broke and we cannot secure the house.,high,test
+emergency-train-01,emergency-train-01,There is active fire in the kitchen and smoke is filling the room.,emergency,train
+emergency-train-02,emergency-train-02,I can smell gas strongly near the stove right now.,emergency,train
+emergency-train-03,emergency-train-03,A burst pipe is actively flooding the living room.,emergency,train
+emergency-train-04,emergency-train-04,An electrical outlet is sparking and smoke is coming from it.,emergency,train
+emergency-train-05,emergency-train-05,Water is flooding across the floor toward electrical wiring.,emergency,train
+emergency-train-06,emergency-train-06,The ceiling is collapsing and pieces are falling where people walk.,emergency,train
+emergency-train-07,emergency-train-07,The carbon monoxide alarm is sounding right now.,emergency,train
+emergency-train-08,emergency-train-08,There are flames coming from the electrical panel.,emergency,train
+emergency-train-09,emergency-train-09,A live wire is exposed and sparking in the occupied hallway.,emergency,train
+emergency-train-10,emergency-train-10,Sewage is overflowing into the home and spreading rapidly.,emergency,train
+emergency-train-11,emergency-train-11,The gas line was damaged and there is a strong gas odor.,emergency,train
+emergency-train-12,emergency-train-12,A broken main water line is flooding the basement uncontrollably.,emergency,train
+emergency-train-13,emergency-train-13,Heavy smoke is pouring from the furnace.,emergency,train
+emergency-train-14,emergency-train-14,The front steps are collapsing while people are on them.,emergency,train
+emergency-train-15,emergency-train-15,An electrical fire has started behind the wall socket.,emergency,train
+emergency-train-16,emergency-train-16,The gas alarm is sounding and there is a hissing noise at the pipe.,emergency,train
+emergency-test-01,emergency-test-01,Smoke and flames are coming out of the breaker panel.,emergency,test
+emergency-test-02,emergency-test-02,A pipe burst and water is actively flooding the occupied house.,emergency,test
+emergency-test-03,emergency-test-03,There is a strong gas smell by the water heater.,emergency,test
+emergency-test-04,emergency-test-04,The ceiling has started collapsing and debris is falling around residents.,emergency,test

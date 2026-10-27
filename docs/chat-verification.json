@@ -1,0 +1,60 @@
+{
+  "verified_at_utc": "2026-10-27T02:20:18.362267+00:00",
+  "path": "HTTP agent -> Bedrock/LangChain -> category and urgency APIs -> two SageMaker endpoints",
+  "message": "My tenant says the air conditioner has stopped cooling and the house is very hot. What should I do?",
+  "result": {
+    "reply": "\nThe air conditioner issue is categorized as HVAC, and the urgency is predicted as high. This is likely due to the house being very hot, which suggests a potential immediate hazard. \n\nAs a next step, I recommend arranging HVAC service as soon as possible. In the meantime, I suggest the tenant find a cooler place for occupants while waiting for the service. Please note that the urgency requires manual review, so it's important to follow up with the appropriate professional.\n\nCan you provide the contact information for the HVAC service provider, or would you prefer I look up a local service?",
+    "tool_results": [
+      {
+        "tool": "assess_maintenance",
+        "result": {
+          "category": "hvac",
+          "probabilities": {
+            "electrical": 0.20220615366601236,
+            "general": 0.22382335419418653,
+            "hvac": 0.3497494876633584,
+            "plumbing": 0.22422100447644278
+          },
+          "provider": "sagemaker",
+          "model_version": "0.1.0",
+          "urgency_assessment": {
+            "urgency": "high",
+            "probabilities": {
+              "emergency": 0.17176549182913844,
+              "high": 0.47258492674683766,
+              "low": 0.18501026808030938,
+              "medium": 0.17063931334371446
+            },
+            "provider": "sagemaker",
+            "model_version": "0.1.0",
+            "recommended_priority": "high",
+            "confirmed_hazards": [],
+            "escalation_reasons": [],
+            "policy_version": "0.1.0",
+            "manual_review_required": true
+          }
+        }
+      }
+    ],
+    "foundation_model": "amazon.nova-lite-v1:0",
+    "ticket_draft": {
+      "assessment_id": "b5f9a2c5-3882-4c24-8354-2014ea14dca4",
+      "description": "My tenant says the air conditioner has stopped cooling and the house is very hot. What should I do?",
+      "assessment": {
+        "category": "hvac",
+        "category_model_version": "0.1.0",
+        "category_provider": "sagemaker",
+        "urgency": "high",
+        "urgency_model_version": "0.1.0",
+        "urgency_provider": "sagemaker",
+        "recommended_priority": "high",
+        "confirmed_hazards": [],
+        "escalation_reasons": [],
+        "policy_version": "0.1.0",
+        "manual_review_required": true
+      },
+      "created_at": "2026-10-27T02:20:17.716063+00:00",
+      "expires_at": 1793154017
+    }
+  }
+}

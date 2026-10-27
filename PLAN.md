@@ -1,0 +1,54 @@
+# Development plan
+
+## Working agreement
+
+Build one component at a time. Explain the component before implementing it; verify its behavior before expanding. Keep documentation and evidence current. Never claim cloud verification from mocked or local tests.
+
+Anthony owns all deliverables and reviews AI suggestions. Deadline, budget, shared-cluster access, dataset choice, and individual-submission accommodation remain unresolved. These do not block local planning and model exploration.
+
+## Milestones
+
+| Phase | Deliverable | Acceptance gate |
+| --- | --- | --- |
+| 0 | Foundation and environment inventory | Scope, rubric mapping, architecture decisions, tool inventory recorded |
+| 1 | Category dataset and baseline | Provenance/license documented; reviewed labels; leakage-aware split; reproducible pipeline; macro F1 and confusion matrix |
+| 2 | First vertical slice | Category model hosted in SageMaker; FastAPI wrapper; minimal Bedrock/LangChain chat; container and initial deployment pipeline; real browser-to-model prediction |
+| 3 | Urgency model and wrapper | Independent endpoint; held-out evaluation including emergency recall and severe under-prioritization; validated responses |
+| 4 | Ticket workflow | Confirmed creation, idempotency, persistent storage, retrieval, status updates; no invented success on failure |
+| 5 | Full deployment automation | Multi-stage images; dev/staging Compose; Kubernetes configuration/probes; Terraform lifecycle; GHCR build/push/deploy/verification |
+| 6 | Reliability and interface | Bounded tool calls/timeouts; low-confidence clarification; failure tests; readable chat and ticket views |
+| 7 | Delivery evidence | Reproduction/teardown runbooks; rubric evidence; presentation under 15 minutes; documented individual-submission limitation |
+
+## Next tasks
+
+- [x] Record tool versions and Docker availability.
+- [ ] Confirm assessment deadline and budget with Anthony.
+- [ ] Resolve individual-submission grading expectations with the instructor.
+- [x] Establish private repository hosting and milestone issues.
+- [ ] Create GitHub Project board (token needs project/read:project permissions).
+- [ ] Select a licensed maintenance dataset or document a reviewed synthetic-data strategy.
+- [x] Define category labels: HVAC, plumbing, electrical, general maintenance (provisional policy documented; human review pending).
+- [ ] Define urgency labels with examples: low, medium, high, emergency.
+- [ ] Agree on evaluation criteria before reporting model results.
+- [x] Train category baseline before implementing its prediction wrapper.
+
+## Verified progress
+
+- Category seed: 64 AI-authored synthetic examples, with human review pending. Baseline macro F1 0.803 on 16 held-out examples; no real-world accuracy claim.
+- Category API: local inference, validated request/response contracts, liveness/readiness, non-root multi-stage Docker image, and local Compose HTTP smoke checks.
+- SageMaker integration: dedicated hosting image with port 8080 and `/ping`/`/invocations`; configurable wrapper provider; malformed-response and failure handling; seven automated tests passed.
+- AWS release is tracked in `docs/sagemaker-deployment.md`; follow live verification evidence rather than assuming a prepared implementation means a deployed endpoint.
+- AWS funding: Anthony reports the school pays. No numeric cap has been established; keep the footprint modest and use on-demand hosting.
+- First chat slice: Bedrock Nova Lite with bounded LangChain tool calling, category service over HTTP, and real SageMaker result verified. Agent API and multi-stage image implemented; four agent tests passed. Evidence in `docs/chat-verification.json`. Next close the first vertical slice with a minimal React frontend, then proceed to urgency.
+- 2026-10-26: React/TypeScript dashboard follows Anthony's supplied visual reference. Session activity, category breakdown, search/filter, and assistant drawer implemented. Three deterministic browser tests passed against the production container; separate real-browser Bedrock/SageMaker test passed and saved `docs/frontend-verification.json`. Frontend container is healthy and non-root. Initial release CI/CD remains pending; urgency model is the next application component.
+- 2026-10-26: Independent urgency baseline trained on 64 synthetic examples and tested on 16: macro F1 0.937, emergency recall 4/4, one under-prioritized medium example, no two-level under-prioritization. Local urgency API/container verified with five tests and HTTP smoke checks for all four labels. Policy keeps model urgency separate from recommended priority; explicit caller-confirmed hazards raise priority and every result requires manual review. Next: second SageMaker endpoint, real cloud verification, then agent/frontend integration. Do not report this local service as the second deployed endpoint yet.
+- 2026-10-26: Urgency deployed as independent `anthony-proppilot-urgency-v010` endpoint, InService. Reviewed Terraform added one repository and five hosting resources without changes/deletions. Real verification passed all four hosted labels and wrapper-side escalation. Agent now uses one bounded assessment tool to call both services concurrently with the original description. Frontend shows model urgency, recommended priority, and manual-review status; hazard confirmations are explicit request data. Twenty Python tests and four deterministic browser tests passed; a separate browser test verified both hosted providers. Initial urgency ModelError recovered on retry; exact cause is unconfirmed. Next application component: durable maintenance tickets with explicit creation confirmation and idempotency. Infrastructure CI/CD, Kubernetes, remote state, and repository hosting remain separate outstanding milestones.
+- 2026-10-26: Durable ticket milestone implemented. Dedicated DynamoDB table created with encryption, recovery and deletion protection. Agent saves trusted 24-hour assessment drafts; users explicitly review and confirm ticket creation. Atomic transaction protects idempotency and one-ticket-per-assessment; status changes use version conditions. UI lists saved tickets, pages records, updates status, and survives reload. Real concurrency check produced one ticket from three confirmations; changed-payload and stale-version writes were rejected. Six deterministic browser tests and the real assess/confirm/reload/start/resolve flow passed. Two fictional QA tickets were retained as resolved. Next: repository/issue organization, complete Compose environments, remote state, CI/CD and Kubernetes deployment; do not add optional product features before closing rubric gaps.
+
+## Validation strategy
+
+Use unit tests for validation and error mapping, integration tests for service contracts and ticket persistence, and real-cloud smoke tests for Bedrock, SageMaker, and deployed application paths. Keep model evaluation separate from software tests. Group related scenarios/paraphrases in one dataset partition. Report synthetic-data limitations explicitly.
+
+Do not provision infrastructure merely to check tooling. Inventory existing cloud resources before choosing new infrastructure. Never destroy shared resources through capstone state.
+
+- 2026-10-26: Private GitHub repository and six milestone issues created. Complete five-service Compose development/staging configurations added with internal DNS, health dependencies and localhost publishing. Staging full browser assessment/create/reload/start/resolve passed against real Bedrock, both SageMaker endpoints and DynamoDB; one additional fictional resolved QA ticket retained. Six deterministic browser tests passed. Project board is blocked by missing GitHub project scopes. Next: protected remote Terraform state, followed by GHCR/CI and Kubernetes.

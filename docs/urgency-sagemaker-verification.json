@@ -1,0 +1,105 @@
+{
+  "verified_at_utc": "2026-10-27T02:02:12.397615+00:00",
+  "endpoint": "anthony-proppilot-urgency-v010",
+  "region": "us-east-1",
+  "endpoint_status": "InService",
+  "path": "FastAPI TestClient -> urgency wrapper -> real SageMaker endpoint; policy applied in wrapper",
+  "predictions": [
+    {
+      "text": "There is a small scuff on the hallway wall and it is only cosmetic.",
+      "result": {
+        "urgency": "low",
+        "probabilities": {
+          "emergency": 0.20329685671223638,
+          "high": 0.19343926052097504,
+          "low": 0.42786282555971183,
+          "medium": 0.17540105720707672
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker",
+        "recommended_priority": "low",
+        "confirmed_hazards": [],
+        "escalation_reasons": [],
+        "policy_version": "0.1.0",
+        "manual_review_required": true
+      }
+    },
+    {
+      "text": "The kitchen faucet drips slowly into the sink; the drain works and there is no flooding.",
+      "result": {
+        "urgency": "medium",
+        "probabilities": {
+          "emergency": 0.19602137296028366,
+          "high": 0.17367967986283325,
+          "low": 0.2027683101047077,
+          "medium": 0.4275306370721755
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker",
+        "recommended_priority": "medium",
+        "confirmed_hazards": [],
+        "escalation_reasons": [],
+        "policy_version": "0.1.0",
+        "manual_review_required": true
+      }
+    },
+    {
+      "text": "The air conditioner stopped cooling and the occupied house is getting very hot.",
+      "result": {
+        "urgency": "high",
+        "probabilities": {
+          "emergency": 0.17748439395282326,
+          "high": 0.4847930104295941,
+          "low": 0.1666887500553964,
+          "medium": 0.17103384556218643
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker",
+        "recommended_priority": "high",
+        "confirmed_hazards": [],
+        "escalation_reasons": [],
+        "policy_version": "0.1.0",
+        "manual_review_required": true
+      }
+    },
+    {
+      "text": "There is active fire in the kitchen and smoke is filling the room.",
+      "result": {
+        "urgency": "emergency",
+        "probabilities": {
+          "emergency": 0.45581644407878796,
+          "high": 0.17160332654106017,
+          "low": 0.1944326018144308,
+          "medium": 0.1781476275657212
+        },
+        "model_version": "0.1.0",
+        "provider": "sagemaker",
+        "recommended_priority": "emergency",
+        "confirmed_hazards": [],
+        "escalation_reasons": [],
+        "policy_version": "0.1.0",
+        "manual_review_required": true
+      }
+    }
+  ],
+  "escalation_example": {
+    "urgency": "low",
+    "probabilities": {
+      "emergency": 0.20329685671223638,
+      "high": 0.19343926052097504,
+      "low": 0.42786282555971183,
+      "medium": 0.17540105720707672
+    },
+    "model_version": "0.1.0",
+    "provider": "sagemaker",
+    "recommended_priority": "emergency",
+    "confirmed_hazards": [
+      "gas_odor"
+    ],
+    "escalation_reasons": [
+      "Caller-confirmed hazard: gas_odor"
+    ],
+    "policy_version": "0.1.0",
+    "manual_review_required": true
+  }
+}

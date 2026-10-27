@@ -1,0 +1,86 @@
+{
+  "verified_at_utc": "2026-10-27T02:43:55.651Z",
+  "frontend_url": "http://127.0.0.1:8080",
+  "path": "Chrome -> React -> frontend proxy -> Bedrock/LangChain -> category and urgency APIs -> two SageMaker endpoints",
+  "result": {
+    "reply": "\nThe air conditioner issue is categorized as an HVAC problem, and the urgency is predicted as high. The model suggests a high priority, but manual review is required to confirm the urgency. Given the hot conditions, it's important to address this promptly.\n\n**Next Step:** Arrange for an HVAC professional to inspect the air conditioning system. In the meantime, advise the tenant to find a cooler place for comfort and to keep windows open if safe to do so.\n\n**Practical, Conservative Next Step:** Suggest the tenant arranges for a temporary cooling solution, such as fans or a portable air conditioner, while waiting for professional service.\n\nWould you like more details on finding a qualified HVAC professional in your area?",
+    "tool_results": [
+      {
+        "tool": "assess_maintenance",
+        "result": {
+          "category": "hvac",
+          "probabilities": {
+            "electrical": 0.20220615366601236,
+            "general": 0.22382335419418653,
+            "hvac": 0.3497494876633584,
+            "plumbing": 0.22422100447644278
+          },
+          "provider": "sagemaker",
+          "model_version": "0.1.0",
+          "urgency_assessment": {
+            "urgency": "high",
+            "probabilities": {
+              "emergency": 0.17176549182913844,
+              "high": 0.47258492674683766,
+              "low": 0.18501026808030938,
+              "medium": 0.17063931334371446
+            },
+            "provider": "sagemaker",
+            "model_version": "0.1.0",
+            "recommended_priority": "high",
+            "confirmed_hazards": [],
+            "escalation_reasons": [],
+            "policy_version": "0.1.0",
+            "manual_review_required": true
+          }
+        }
+      }
+    ],
+    "foundation_model": "amazon.nova-lite-v1:0",
+    "ticket_draft": {
+      "assessment_id": "edf0e1b3-b3e9-45ad-8475-abd0fd059659",
+      "description": "My tenant says the air conditioner has stopped cooling and the house is very hot. What should I do?",
+      "assessment": {
+        "category": "hvac",
+        "category_model_version": "0.1.0",
+        "category_provider": "sagemaker",
+        "urgency": "high",
+        "urgency_model_version": "0.1.0",
+        "urgency_provider": "sagemaker",
+        "recommended_priority": "high",
+        "confirmed_hazards": [],
+        "escalation_reasons": [],
+        "policy_version": "0.1.0",
+        "manual_review_required": true
+      },
+      "created_at": "2026-10-27T02:43:51.381428+00:00",
+      "expires_at": 1793155431
+    }
+  },
+  "persisted_ticket": {
+    "assessment_id": "edf0e1b3-b3e9-45ad-8475-abd0fd059659",
+    "updated_at": "2026-10-27T02:43:54.916507+00:00",
+    "version": 3,
+    "created_at": "2026-10-27T02:43:54.052766+00:00",
+    "property_label": "Portfolio Browser Verification (fictional)",
+    "status": "resolved",
+    "assessment": {
+      "policy_version": "0.1.0",
+      "manual_review_required": true,
+      "escalation_reasons": [],
+      "urgency_provider": "sagemaker",
+      "recommended_priority": "high",
+      "urgency": "high",
+      "confirmed_hazards": [],
+      "category_provider": "sagemaker",
+      "category": "hvac",
+      "urgency_model_version": "0.1.0",
+      "category_model_version": "0.1.0"
+    },
+    "ticket_id": "PP-20261027024354052671-4cbf3557",
+    "description": "My tenant says the air conditioner has stopped cooling and the house is very hot. What should I do?",
+    "unit": "QA",
+    "confirm_reviewed": true
+  },
+  "note": "Fictional QA ticket retained as resolved; browser reload verified persistence."
+}
