@@ -28,3 +28,7 @@ ml/artifacts/
 *.tar.gz
 
 .state-backups/
+
+compose.release.json
+release-images.json
+compose-status.txt
