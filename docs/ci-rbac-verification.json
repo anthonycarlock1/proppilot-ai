@@ -1,0 +1,61 @@
+{
+  "method": "Administrator impersonation of scoped Kubernetes group; real OIDC authentication requires workflow verification",
+  "checks": [
+    {
+      "verb": "patch",
+      "resource": "deployments",
+      "subresource": null,
+      "namespace": "proppilot",
+      "allowed": true
+    },
+    {
+      "verb": "create",
+      "resource": "services",
+      "subresource": null,
+      "namespace": "proppilot",
+      "allowed": true
+    },
+    {
+      "verb": "create",
+      "resource": "pods",
+      "subresource": "portforward",
+      "namespace": "proppilot",
+      "allowed": true
+    },
+    {
+      "verb": "get",
+      "resource": "secrets",
+      "subresource": null,
+      "namespace": "proppilot",
+      "allowed": false
+    },
+    {
+      "verb": "create",
+      "resource": "serviceaccounts",
+      "subresource": null,
+      "namespace": "proppilot",
+      "allowed": false
+    },
+    {
+      "verb": "patch",
+      "resource": "configmaps",
+      "subresource": null,
+      "namespace": "kube-system",
+      "allowed": false
+    },
+    {
+      "verb": "patch",
+      "resource": "deployments",
+      "subresource": null,
+      "namespace": "platform-team",
+      "allowed": false
+    },
+    {
+      "verb": "create",
+      "resource": "namespaces",
+      "subresource": null,
+      "namespace": null,
+      "allowed": false
+    }
+  ]
+}

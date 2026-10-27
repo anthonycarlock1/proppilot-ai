@@ -1,29 +1,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: proppilot
 resources:
-  - namespace.yaml
-  - quota.yaml
-  - config.yaml
-  - serviceaccounts.yaml
-  - category.yaml
-  - urgency.yaml
-  - tickets.yaml
-  - agent.yaml
-  - frontend.yaml
-images:
-  - name: proppilot/category
-    newName: 388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-category
-    digest: sha256:5c1be52c77d6383c6e0dffeccc08abd23ea8b84941e133088bab6eaef6735efe
-  - name: proppilot/urgency
-    newName: 388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-urgency
-    digest: sha256:def3fd2a2af774a62396ef9f1a89aa760973f6737eec56aa5de2195a84992ae8
-  - name: proppilot/tickets
-    newName: 388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-tickets
-    digest: sha256:98137f3b880033e305d2dbacb8cc17e5fe2eade9b6fdf01adad78b7d651f6b9f
-  - name: proppilot/agent
-    newName: 388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-agent
-    digest: sha256:6ad361f21bac4d37a6dc047c8cf1a2fc7ca5d951d04bce24e9150faa8548a88b
-  - name: proppilot/frontend
-    newName: 388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-frontend
-    digest: sha256:b2fe0cef5c7d1680ceb173e04fcb69aa5ab97e7ef2d03e756f948d3e24ec306a
+  - base

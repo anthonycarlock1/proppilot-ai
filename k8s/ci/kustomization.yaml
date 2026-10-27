@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../base
+patches:
+  - target:
+      kind: Namespace
+    patch: |-
+      $patch: delete
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: proppilot
+  - target:
+      kind: ResourceQuota
+    patch: |-
+      $patch: delete
+      apiVersion: v1
+      kind: ResourceQuota
+      metadata:
+        name: proppilot-budget
+  - target:
+      kind: ServiceAccount
+    patch: |-
+      $patch: delete
+      apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+        name: ignored
