@@ -10,7 +10,7 @@ The existing Pod Identity agent is reused. AWS SDK versions exceed the documente
 
 All pods run non-root, drop Linux capabilities, disallow privilege escalation and use RuntimeDefault seccomp. The namespace enforces the restricted Pod Security profile. Resource requests/limits and a namespace quota bound placement; one replica is a portfolio footprint, not high availability. Startup/liveness checks test process health. Readiness checks validate model configuration and actual DynamoDB DescribeTable access; model readiness does not invoke SageMaker. The real assessment is the model connectivity check. Agent/frontend readiness uses local health rather than cascading dependency checks.
 
-Application images are rebuilt from committed source and stored in five private ECR repositories with immutable tags. Kubernetes pins recorded digests. These ECR artifacts are separate builds from the GHCR runner release; do not claim they are identical mirrored artifacts. EKS nodes use existing ECR pull permissions, avoiding a private GHCR personal-token Secret. `docs/eks-images.json` records the ECR release source and digests.
+For manual releases, application images are rebuilt from committed source and stored in five private ECR repositories with immutable tags. Kubernetes pins recorded digests. These ECR artifacts are separate builds from the GHCR runner release; do not claim they are identical mirrored artifacts. EKS nodes use existing ECR pull permissions, avoiding a private GHCR personal-token Secret. `docs/eks-images.json` records that initial manual release. The automated pipeline instead copies verified GHCR runtime images, checks runtime image IDs and records current release digests in `docs/automated-release-images.json`.
 
 ## Deploy
 
@@ -56,7 +56,7 @@ Review previous image digests/configuration before rollback. `kubectl -n proppil
 
 To stop capstone workloads, review `kubectl delete namespace proppilot`; it removes only that namespace's workloads and internal token. It does not delete tickets, hosted models, images or the cluster. Runtime Terraform destroy removes scoped role associations/roles and empty ECR repositories; nonempty repositories intentionally block deletion. Review a destroy plan and image retention before teardown. Keep shared cluster infrastructure and the state backend. No destructive teardown or rollback is part of the verification claim.
 
-CI currently tests/publishes GHCR and verifies temporary Compose. This manual EKS deployment does not yet close automated cloud deployment in issue #3. A future job needs scoped GitHub-to-AWS identity and namespace RBAC; do not upload long-lived development AWS credentials as a shortcut.
+[Automated cloud deployment](cloud-cd.md) is now verified: a scoped main-only OIDC role copies the tested runtime images into ECR, applies the application-only overlay and runs the real cloud browser lifecycle. The manual bootstrap path remains available. Long-lived AWS credentials are not stored in GitHub. The shared manifests now live in `k8s/base`; `k8s/ci` excludes bootstrap resources.
 
 ## Verification evidence
 

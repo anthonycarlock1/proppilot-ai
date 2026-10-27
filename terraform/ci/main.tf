@@ -29,7 +29,7 @@ resource "aws_iam_role" "deploy" {
       Principal = { Federated = "arn:aws:iam::388691194728:oidc-provider/token.actions.githubusercontent.com" }
       Condition = { StringEquals = {
         "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-        "token.actions.githubusercontent.com:sub" = "repo:anthonycarlock1/proppilot-ai:ref:refs/heads/main"
+        "token.actions.githubusercontent.com:sub" = "repo:anthonycarlock1@237302030/proppilot-ai@1435163725:ref:refs/heads/main"
       } }
     }]
   })

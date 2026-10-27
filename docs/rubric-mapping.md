@@ -1,6 +1,6 @@
 # Rubric evidence checklist
 
-Status updated 2026-10-26. This is an evidence inventory, not an awarded grade. Planned artifacts are not completion evidence.
+Status updated 2026-10-27. This is an evidence inventory, not an awarded grade. Planned artifacts are not completion evidence.
 
 Verified implementation so far:
 
@@ -10,7 +10,17 @@ Verified implementation so far:
 - Multi-stage Dockerfiles and local Compose for implemented services; registry root and separate hosting roots manage dedicated resources with reviewed Terraform plans.
 - Documentation, architecture diagram, and AI critical-evaluation log are maintained incrementally.
 
-Still required: automated live-cloud deployment/verification in CI/CD, reproducible full-platform lifecycle, GitHub Project/branch/PR evidence, and recorded presentation. Individual-submission grading expectations remain unresolved. Protected S3 state migration is verified for all five Terraform roots with zero-change plans and real lock contention; see `docs/remote-state-verification.json` and the recovery runbook. Persistent reviewed tickets are implemented with real DynamoDB concurrency/persistence evidence in `docs/ticket-verification.json`; the five-service Compose staging stack and separate EKS namespace are each verified end to end. Both Compose configurations validate; local-model containers were separately smoke tested. Private repository, milestone issues and feature PRs exist; Project board creation needs additional token scopes. Five application images are published to GHCR; CI tests/builds/pushes and verifies a temporary runner Compose deployment. Actual success and image digests are recorded in `docs/container-ci-verification.json`; that CI run is not EKS or real AWS integration verification. Separately, the manual EKS deployment is verified with four scoped Pod Identity roles, five ready pods and a real full-browser cloud/ticket flow; see `docs/eks-verification.json` and `docs/eks-browser-verification.json`.
+Still required: model-data/policy human review and independent evaluation, final reproduction/teardown documentation audit, GitHub Project board, instructor guidance on the solo submission and the recorded presentation. Feature branches, issues and PRs exist; a board needs additional GitHub token scopes. AI assistance is not human team participation.
+
+Additional verified evidence:
+
+- Protected S3 state migration for the original five roots: `docs/remote-state-verification.json`. Runtime and CI roots were later initialized directly in the same protected backend.
+- Durable reviewed tickets and real DynamoDB concurrency/persistence: `docs/ticket-verification.json`.
+- Five GHCR images and temporary runner integration: `docs/container-ci-verification.json`.
+- Manual EKS baseline with scoped Pod Identity: `docs/eks-verification.json` and `docs/eks-browser-verification.json`.
+- Complete automated main pipeline, including real OIDC authentication, matching runtime image copies, scoped Kubernetes access, rollout and live cloud browser/ticket verification: `docs/automated-deployment-verification.json` and `docs/automated-cloud-browser-verification.json`.
+
+Both Compose configurations validate; local-model containers were smoke tested and full staging was verified end to end. None of the synthetic model evaluations establish real-world reliability.
 
 | Category | Planned evidence |
 | --- | --- |

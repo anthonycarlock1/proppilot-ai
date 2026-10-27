@@ -4,7 +4,7 @@ The `deploy-eks` job in [Application containers](../.github/workflows/containers
 
 ## Identity and bootstrap
 
-The dedicated `anthony-proppilot-github-deploy` role trusts GitHub's existing OIDC provider for audience `sts.amazonaws.com` and the exact subject `repo:anthonycarlock1/proppilot-ai:ref:refs/heads/main`. No AWS keys are stored as GitHub secrets. The job requests a 30-minute session and verifies the expected account. See [GitHub's official AWS OIDC guide](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws).
+The dedicated `anthony-proppilot-github-deploy` role trusts GitHub's existing OIDC provider for audience `sts.amazonaws.com` and the exact subject `repo:anthonycarlock1@237302030/proppilot-ai@1435163725:ref:refs/heads/main`. This repository uses GitHub immutable OIDC subjects containing owner/repository IDs; its API reports `use_immutable_subject: true`. Names-only trust does not match. No AWS keys are stored as GitHub secrets. The job requests a 30-minute session and verifies the expected account. See [GitHub's official AWS OIDC guide](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws).
 
 The AWS policy permits describing only the existing assessment cluster and publishing/reading only the five PropPilot application ECR repositories. ECR authorization requires a wildcard resource; repository operations remain scoped. The role cannot manage IAM, Terraform state, SageMaker models/endpoints, DynamoDB, nodes or clusters. Application AWS calls use the separate Pod Identity roles, not the deployment role.
 
@@ -39,3 +39,10 @@ An authentication, permission, mirror, dry-run, rollout or browser failure fails
 A rerun reuses immutable ECR tags only after comparing runtime image IDs. Concurrent releases serialize at the deployment job. PR writers cannot assume the deployment role, but maintainers of main can change deployment code within the role's scope. OIDC avoids permanent keys; it does not replace repository access controls.
 
 The initial RBAC checks in [ci-rbac-verification.json](ci-rbac-verification.json) used administrator impersonation and server dry-run. Real workflow authentication/deployment evidence must be recorded separately; configuration or bootstrap success alone is not a completed automated deployment.
+
+
+## Verified execution
+
+[Run 40543770367, attempt 2](https://github.com/anthonycarlock1/proppilot-ai/actions/runs/40543770367/attempts/2) successfully authenticated through OIDC, copied all five runtime images with identity checks, verified all eight Kubernetes permission decisions, passed server dry-run and five rollouts, and passed the real Chrome Bedrock/SageMaker/DynamoDB ticket flow. [Saved evidence](automated-deployment-verification.json), [live browser result](automated-cloud-browser-verification.json) and [release digests](automated-release-images.json) outlive temporary Actions artifacts. Five ready pods had zero restarts after verification; earlier coursework Deployments remained available.
+
+Attempt 1 passed upstream tests/builds/publication/verification but failed at OIDC before changing workloads: its initial legacy names-only trust did not match this repository's immutable subject. A reviewed one-field trust correction retained the exact repository IDs and main branch; only the failed deployment job was rerun. The successful artifact ID is recorded explicitly because reruns can produce identical artifact names across attempts. Initial bootstrap added two IAM resources; the correction updated only the role trust and the final Terraform plan had no changes.
