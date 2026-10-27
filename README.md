@@ -44,6 +44,7 @@ All five application services run in Docker Compose and in an isolated namespace
 - [Rubric and evidence checklist](docs/rubric-mapping.md)
 - [Architecture decisions](docs/architecture.md)
 - [AI development log](docs/ai-development-log.md)
+- [Model review and additional evaluation](docs/model-review.md)
 
 Official assessment instructions remain in the sibling `../aico-assessment-v/` directory. They are the source of truth; this repository does not replace them.
 

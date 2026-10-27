@@ -1,0 +1,918 @@
+{
+  "suite_version": 1,
+  "suite_frozen_commit": "8a0cad9f2d8e561c506a4ec561c9b0f349ea6419",
+  "data_origin": "Additional AI-authored synthetic diagnostic suite; human case-label review pending",
+  "human_review_snapshot": {
+    "category_rule_review": {
+      "reviewer": "Anthony Carlock",
+      "date": "2026-10-27",
+      "approved_rules": {
+        "AC drain leaks": "hvac",
+        "roof leaks": "general",
+        "water-heater failures": "plumbing"
+      },
+      "scope": "These three provisional category rules only; not approval of every example or operational readiness"
+    },
+    "urgency_policy_review": "User response pending",
+    "individual_seed_case_review": "Pending",
+    "individual_challenge_case_review": "Pending",
+    "independently_authored_blind_test": "Not yet available"
+  },
+  "limitations": [
+    "Not independently authored, blind, representative or safety validation",
+    "Created after known baseline errors; includes targeted weaknesses",
+    "Probabilities are uncalibrated; unsupported cases have no scored labels",
+    "Local artifacts are not asserted byte-identical to separate cloud builds"
+  ],
+  "case_sha256": "af08c3060bdf3a8bcfff4c4d1eeacc5752e270a2b72cb1f53e1a3bb0dd3d67d4",
+  "unscored_sha256": "4421695d482b9db0e2121ea4f3e32bdabf4a734a9c5e34e91210ccac951e9895",
+  "scored_count": 32,
+  "unscored_count": 8,
+  "sklearn_version": "1.6.1",
+  "exact_seed_overlap": false,
+  "production_acceptance": "No agreed threshold; diagnostic only",
+  "tasks": {
+    "category": {
+      "labels": [
+        "hvac",
+        "plumbing",
+        "electrical",
+        "general"
+      ],
+      "artifact_sha256": "3714176bee7727091a5b6d5555fe6558a1e72fc47428ef6667c189cc44fc7b02",
+      "original_holdout_predictions_reproduced": true,
+      "classification_report": {
+        "hvac": {
+          "precision": 0.7142857142857143,
+          "recall": 0.625,
+          "f1-score": 0.6666666666666666,
+          "support": 8.0
+        },
+        "plumbing": {
+          "precision": 0.875,
+          "recall": 0.875,
+          "f1-score": 0.875,
+          "support": 8.0
+        },
+        "electrical": {
+          "precision": 0.7142857142857143,
+          "recall": 0.625,
+          "f1-score": 0.6666666666666666,
+          "support": 8.0
+        },
+        "general": {
+          "precision": 0.7,
+          "recall": 0.875,
+          "f1-score": 0.7777777777777778,
+          "support": 8.0
+        },
+        "accuracy": 0.75,
+        "macro avg": {
+          "precision": 0.7508928571428573,
+          "recall": 0.75,
+          "f1-score": 0.7465277777777777,
+          "support": 32.0
+        },
+        "weighted avg": {
+          "precision": 0.7508928571428573,
+          "recall": 0.75,
+          "f1-score": 0.7465277777777777,
+          "support": 32.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          7,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          5,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          7
+        ]
+      ],
+      "predictions": [
+        {
+          "id": "challenge-hvac-01",
+          "text": "The thermostat faceplate is scratched, but its readings and temperature control work normally.",
+          "expected": "hvac",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.34678516253897085,
+          "nearest_training_id": "hvac-train-10",
+          "nearest_training_cosine": 0.40169997464079493
+        },
+        {
+          "id": "challenge-hvac-02",
+          "text": "The ventilation grille paint is flaking; airflow and room temperatures are unchanged.",
+          "expected": "hvac",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.33403286870757165,
+          "nearest_training_id": "general-train-10",
+          "nearest_training_cosine": 0.2814608933002138
+        },
+        {
+          "id": "challenge-hvac-03",
+          "text": "The bedroom air vent damper is jammed closed; the other rooms still receive conditioned air and no hazard is reported.",
+          "expected": "hvac",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.3624444122814174,
+          "nearest_training_id": "hvac-train-04",
+          "nearest_training_cosine": 0.24875425379928462
+        },
+        {
+          "id": "challenge-hvac-04",
+          "text": "The AC condensate drain leaves a small contained puddle in its catch tray; cooling still works and water is not spreading.",
+          "expected": "hvac",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.3558358051179154,
+          "nearest_training_id": "plumbing-train-02",
+          "nearest_training_cosine": 0.2810444737065518
+        },
+        {
+          "id": "challenge-hvac-05",
+          "text": "During freezing weather the occupied apartment has no heat because the boiler stopped working.",
+          "expected": "hvac",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.30037917311217144,
+          "nearest_training_id": "hvac-train-02",
+          "nearest_training_cosine": 0.305966996311501
+        },
+        {
+          "id": "challenge-hvac-06",
+          "text": "The cooling system failed this afternoon and the occupied upstairs rooms are becoming excessively hot.",
+          "expected": "hvac",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.2732122472986656,
+          "nearest_training_id": "general-train-01",
+          "nearest_training_cosine": 0.14174972931385252
+        },
+        {
+          "id": "challenge-hvac-07",
+          "text": "There are flames coming out of the air-handler cabinet right now.",
+          "expected": "hvac",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.358563944499707,
+          "nearest_training_id": "hvac-train-04",
+          "nearest_training_cosine": 0.34268108079338166
+        },
+        {
+          "id": "challenge-hvac-08",
+          "text": "Thick smoke is pouring from the operating furnace into the occupied hallway.",
+          "expected": "hvac",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.28855719438418836,
+          "nearest_training_id": "general-train-10",
+          "nearest_training_cosine": 0.2863553482242955
+        },
+        {
+          "id": "challenge-plumbing-01",
+          "text": "The decorative faucet cap has faded, but the tap operates normally without any leak.",
+          "expected": "plumbing",
+          "predicted": "electrical",
+          "max_uncalibrated_probability": 0.2844015479587053,
+          "nearest_training_id": "hvac-train-01",
+          "nearest_training_cosine": 0.22613107724215095
+        },
+        {
+          "id": "challenge-plumbing-02",
+          "text": "The toilet seat has a surface scratch; it is secure and the toilet works normally.",
+          "expected": "plumbing",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.37515333702459663,
+          "nearest_training_id": "plumbing-train-02",
+          "nearest_training_cosine": 0.34129863929276927
+        },
+        {
+          "id": "challenge-plumbing-03",
+          "text": "The bathroom basin drains slowly, but it is usable and no water is overflowing.",
+          "expected": "plumbing",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.36328509400594006,
+          "nearest_training_id": "plumbing-train-09",
+          "nearest_training_cosine": 0.3366857055027069
+        },
+        {
+          "id": "challenge-plumbing-04",
+          "text": "A drain joint drips occasionally into a bucket; the drip is contained and the sink remains usable.",
+          "expected": "plumbing",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.3142382577987277,
+          "nearest_training_id": "plumbing-train-10",
+          "nearest_training_cosine": 0.23499094140227875
+        },
+        {
+          "id": "challenge-plumbing-05",
+          "text": "The building water supply has failed and no occupied unit has running water.",
+          "expected": "plumbing",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.3574030289567698,
+          "nearest_training_id": "plumbing-train-08",
+          "nearest_training_cosine": 0.2445185393387624
+        },
+        {
+          "id": "challenge-plumbing-06",
+          "text": "The sole water heater has stopped supplying hot water to the occupied building during cold weather.",
+          "expected": "plumbing",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.36086701900006773,
+          "nearest_training_id": "plumbing-train-05",
+          "nearest_training_cosine": 0.454702343415319
+        },
+        {
+          "id": "challenge-plumbing-07",
+          "text": "A ruptured supply line is rapidly flooding the occupied kitchen and the water is still flowing.",
+          "expected": "plumbing",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.35552842547295876,
+          "nearest_training_id": "plumbing-train-08",
+          "nearest_training_cosine": 0.44672924518717494
+        },
+        {
+          "id": "challenge-plumbing-08",
+          "text": "Sewage is actively overflowing from the toilet and spreading across the occupied apartment.",
+          "expected": "plumbing",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.30008581623334346,
+          "nearest_training_id": "plumbing-train-02",
+          "nearest_training_cosine": 0.3420229448537839
+        },
+        {
+          "id": "challenge-electrical-01",
+          "text": "The light switch cover has a cosmetic scratch; the switch and lights function normally.",
+          "expected": "electrical",
+          "predicted": "electrical",
+          "max_uncalibrated_probability": 0.38299579733237965,
+          "nearest_training_id": "electrical-train-04",
+          "nearest_training_cosine": 0.4637550229712998
+        },
+        {
+          "id": "challenge-electrical-02",
+          "text": "A socket faceplate is discolored from old paint, with no heat, damage or loss of function.",
+          "expected": "electrical",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.2739239588387198,
+          "nearest_training_id": "hvac-train-02",
+          "nearest_training_cosine": 0.26792380428370743
+        },
+        {
+          "id": "challenge-electrical-03",
+          "text": "One installed reading light will not turn on; the other lights work and there is no heat or smoke.",
+          "expected": "electrical",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.3124201923433674,
+          "nearest_training_id": "hvac-train-02",
+          "nearest_training_cosine": 0.6445519419680498
+        },
+        {
+          "id": "challenge-electrical-04",
+          "text": "The hallway dimmer no longer adjusts brightness, but the light stays on normally with no reported hazard.",
+          "expected": "electrical",
+          "predicted": "electrical",
+          "max_uncalibrated_probability": 0.3977636188869124,
+          "nearest_training_id": "electrical-train-09",
+          "nearest_training_cosine": 0.38653637338395896
+        },
+        {
+          "id": "challenge-electrical-05",
+          "text": "The main circuit has failed and the occupied house has no working lights or electrical outlets.",
+          "expected": "electrical",
+          "predicted": "electrical",
+          "max_uncalibrated_probability": 0.33162782500435306,
+          "nearest_training_id": "electrical-train-10",
+          "nearest_training_cosine": 0.16104633470845175
+        },
+        {
+          "id": "challenge-electrical-06",
+          "text": "Repeated breaker trips have left the entire occupied apartment without electricity; there is no reported smoke or sparking.",
+          "expected": "electrical",
+          "predicted": "electrical",
+          "max_uncalibrated_probability": 0.3704103759796118,
+          "nearest_training_id": "hvac-train-02",
+          "nearest_training_cosine": 0.3072763275244011
+        },
+        {
+          "id": "challenge-electrical-07",
+          "text": "The breaker cabinet is smoking and its wiring is visibly glowing red right now.",
+          "expected": "electrical",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.30948313791961324,
+          "nearest_training_id": "electrical-train-01",
+          "nearest_training_cosine": 0.25761555591425267
+        },
+        {
+          "id": "challenge-electrical-08",
+          "text": "An exposed live cable is throwing sparks across the occupied entryway.",
+          "expected": "electrical",
+          "predicted": "electrical",
+          "max_uncalibrated_probability": 0.339914581605857,
+          "nearest_training_id": "electrical-train-07",
+          "nearest_training_cosine": 0.4050083238322841
+        },
+        {
+          "id": "challenge-general-01",
+          "text": "There is a small paint scuff on the bedroom wall and the wall is otherwise sound.",
+          "expected": "general",
+          "predicted": "electrical",
+          "max_uncalibrated_probability": 0.29935109494873774,
+          "nearest_training_id": "electrical-train-05",
+          "nearest_training_cosine": 0.2591089845807062
+        },
+        {
+          "id": "challenge-general-02",
+          "text": "A kitchen cabinet handle has a cosmetic scratch; the handle and door are firmly attached and work normally.",
+          "expected": "general",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.3430868548524564,
+          "nearest_training_id": "general-train-05",
+          "nearest_training_cosine": 0.29619675156501574
+        },
+        {
+          "id": "challenge-general-03",
+          "text": "A single window insect screen is torn; the window itself closes and locks securely.",
+          "expected": "general",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.3539259527588791,
+          "nearest_training_id": "general-train-02",
+          "nearest_training_cosine": 0.2839233885049318
+        },
+        {
+          "id": "challenge-general-04",
+          "text": "Rainwater seeps slowly through the roof into one bucket; the leak is contained and no sagging or electrical contact is reported.",
+          "expected": "general",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.2859035366655429,
+          "nearest_training_id": "general-train-07",
+          "nearest_training_cosine": 0.20810654529703695
+        },
+        {
+          "id": "challenge-general-05",
+          "text": "The front entrance latch has broken and the occupied property cannot be secured.",
+          "expected": "general",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.3477755942910152,
+          "nearest_training_id": "general-train-01",
+          "nearest_training_cosine": 0.3252482396988336
+        },
+        {
+          "id": "challenge-general-06",
+          "text": "The only exterior access door is jammed shut, preventing normal use; another safe exit remains available.",
+          "expected": "general",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.32293891995064633,
+          "nearest_training_id": "general-train-10",
+          "nearest_training_cosine": 0.20910428324411084
+        },
+        {
+          "id": "challenge-general-07",
+          "text": "Large sections of the ceiling are actively collapsing onto the occupied living-room floor.",
+          "expected": "general",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.28280591602410987,
+          "nearest_training_id": "general-train-04",
+          "nearest_training_cosine": 0.27039054564026155
+        },
+        {
+          "id": "challenge-general-08",
+          "text": "The exterior stair landing is breaking apart while people are standing on it.",
+          "expected": "general",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.3072940402909765,
+          "nearest_training_id": "general-train-10",
+          "nearest_training_cosine": 0.252399841216014
+        }
+      ],
+      "unscored_outputs": [
+        {
+          "id": "unscored-01",
+          "text": "The unit is broken.",
+          "review_reason": "Insufficient detail: affected system and severity unspecified.",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.34643395371183994
+        },
+        {
+          "id": "unscored-02",
+          "text": "The shower leaks and the bedroom outlet is sparking.",
+          "review_reason": "Multiple independent systems; single-category label is inadequate.",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.2681744766500403
+        },
+        {
+          "id": "unscored-03",
+          "text": "How much should I raise the rent next year?",
+          "review_reason": "Rental pricing is outside the maintenance classifiers.",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.27882159601873363
+        },
+        {
+          "id": "unscored-04",
+          "text": "Can you book a roofer for next Tuesday?",
+          "review_reason": "Scheduling request without an issue description; no dispatch capability.",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.293945441198858
+        },
+        {
+          "id": "unscored-05",
+          "text": "My home does not feel right.",
+          "review_reason": "Insufficient observable maintenance details.",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.3212656364845487
+        },
+        {
+          "id": "unscored-06",
+          "text": "The alarm keeps beeping, but I do not know which alarm it is.",
+          "review_reason": "Alarm type and hazard state require clarification.",
+          "predicted": "plumbing",
+          "max_uncalibrated_probability": 0.3154782526070515
+        },
+        {
+          "id": "unscored-07",
+          "text": "The tenant says it is hot, but I do not know whether cooling is running.",
+          "review_reason": "System condition, temperature and context are missing.",
+          "predicted": "hvac",
+          "max_uncalibrated_probability": 0.2896409367096878
+        },
+        {
+          "id": "unscored-08",
+          "text": "Yesterday there was smoke; the fire department cleared it and the damaged fixture is disconnected.",
+          "review_reason": "Historical resolved hazard differs from an active hazard; current status needs review.",
+          "predicted": "general",
+          "max_uncalibrated_probability": 0.27739197121999276
+        }
+      ]
+    },
+    "urgency": {
+      "labels": [
+        "low",
+        "medium",
+        "high",
+        "emergency"
+      ],
+      "artifact_sha256": "7117976d9f8e0c48573f7ae24f5d6720e9ff4500d67e342b5554942175b57b03",
+      "original_holdout_predictions_reproduced": true,
+      "classification_report": {
+        "low": {
+          "precision": 0.7777777777777778,
+          "recall": 0.875,
+          "f1-score": 0.8235294117647058,
+          "support": 8.0
+        },
+        "medium": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1-score": 0.6666666666666666,
+          "support": 8.0
+        },
+        "high": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1-score": 0.8888888888888888,
+          "support": 8.0
+        },
+        "emergency": {
+          "precision": 0.8888888888888888,
+          "recall": 1.0,
+          "f1-score": 0.9411764705882353,
+          "support": 8.0
+        },
+        "accuracy": 0.84375,
+        "macro avg": {
+          "precision": 0.8666666666666666,
+          "recall": 0.84375,
+          "f1-score": 0.8300653594771241,
+          "support": 32.0
+        },
+        "weighted avg": {
+          "precision": 0.8666666666666666,
+          "recall": 0.84375,
+          "f1-score": 0.8300653594771241,
+          "support": 32.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          7,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          4,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8
+        ]
+      ],
+      "predictions": [
+        {
+          "id": "challenge-hvac-01",
+          "text": "The thermostat faceplate is scratched, but its readings and temperature control work normally.",
+          "expected": "low",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.35500117099149,
+          "nearest_training_id": "low-train-02",
+          "nearest_training_cosine": 0.41854765528467,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-hvac-02",
+          "text": "The ventilation grille paint is flaking; airflow and room temperatures are unchanged.",
+          "expected": "low",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.31007262632704624,
+          "nearest_training_id": "low-train-07",
+          "nearest_training_cosine": 0.3045545368967363,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-hvac-03",
+          "text": "The bedroom air vent damper is jammed closed; the other rooms still receive conditioned air and no hazard is reported.",
+          "expected": "medium",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.31391136347043175,
+          "nearest_training_id": "medium-train-03",
+          "nearest_training_cosine": 0.2111294575657158,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-hvac-04",
+          "text": "The AC condensate drain leaves a small contained puddle in its catch tray; cooling still works and water is not spreading.",
+          "expected": "medium",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.27690275283607546,
+          "nearest_training_id": "medium-train-01",
+          "nearest_training_cosine": 0.20685057696659526,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-hvac-05",
+          "text": "During freezing weather the occupied apartment has no heat because the boiler stopped working.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.4280968662491646,
+          "nearest_training_id": "high-train-02",
+          "nearest_training_cosine": 0.5646747976432468,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-hvac-06",
+          "text": "The cooling system failed this afternoon and the occupied upstairs rooms are becoming excessively hot.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.36609779518280766,
+          "nearest_training_id": "high-train-14",
+          "nearest_training_cosine": 0.32433254051021126,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-hvac-07",
+          "text": "There are flames coming out of the air-handler cabinet right now.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.3878199050520694,
+          "nearest_training_id": "emergency-train-08",
+          "nearest_training_cosine": 0.47778005944468255,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-hvac-08",
+          "text": "Thick smoke is pouring from the operating furnace into the occupied hallway.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.45765451304590016,
+          "nearest_training_id": "emergency-train-13",
+          "nearest_training_cosine": 0.6348694728935755,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-01",
+          "text": "The decorative faucet cap has faded, but the tap operates normally without any leak.",
+          "expected": "low",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.32071368471718786,
+          "nearest_training_id": "high-train-06",
+          "nearest_training_cosine": 0.23077742685391112,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-02",
+          "text": "The toilet seat has a surface scratch; it is secure and the toilet works normally.",
+          "expected": "low",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.32225835576885337,
+          "nearest_training_id": "medium-train-07",
+          "nearest_training_cosine": 0.2632404537465497,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-03",
+          "text": "The bathroom basin drains slowly, but it is usable and no water is overflowing.",
+          "expected": "medium",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.3424489919285991,
+          "nearest_training_id": "medium-train-11",
+          "nearest_training_cosine": 0.2646757499321761,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-04",
+          "text": "A drain joint drips occasionally into a bucket; the drip is contained and the sink remains usable.",
+          "expected": "medium",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.3312747101940229,
+          "nearest_training_id": "medium-train-01",
+          "nearest_training_cosine": 0.4269305976505692,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-05",
+          "text": "The building water supply has failed and no occupied unit has running water.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.35344385247592075,
+          "nearest_training_id": "high-train-06",
+          "nearest_training_cosine": 0.3799330933125719,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-06",
+          "text": "The sole water heater has stopped supplying hot water to the occupied building during cold weather.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.3876358615130817,
+          "nearest_training_id": "high-train-07",
+          "nearest_training_cosine": 0.45897233582596797,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-07",
+          "text": "A ruptured supply line is rapidly flooding the occupied kitchen and the water is still flowing.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.34824415894677746,
+          "nearest_training_id": "emergency-train-12",
+          "nearest_training_cosine": 0.3290807371681286,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-plumbing-08",
+          "text": "Sewage is actively overflowing from the toilet and spreading across the occupied apartment.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.4011562742261912,
+          "nearest_training_id": "emergency-train-10",
+          "nearest_training_cosine": 0.3721215430031795,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-electrical-01",
+          "text": "The light switch cover has a cosmetic scratch; the switch and lights function normally.",
+          "expected": "low",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.40196479049324046,
+          "nearest_training_id": "low-train-11",
+          "nearest_training_cosine": 0.3744868946107267,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-electrical-02",
+          "text": "A socket faceplate is discolored from old paint, with no heat, damage or loss of function.",
+          "expected": "low",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.29819477748588885,
+          "nearest_training_id": "low-train-08",
+          "nearest_training_cosine": 0.2671495300852301,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-electrical-03",
+          "text": "One installed reading light will not turn on; the other lights work and there is no heat or smoke.",
+          "expected": "medium",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.322646283011072,
+          "nearest_training_id": "medium-train-03",
+          "nearest_training_cosine": 0.4942206655484865,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-electrical-04",
+          "text": "The hallway dimmer no longer adjusts brightness, but the light stays on normally with no reported hazard.",
+          "expected": "medium",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.3579854527307654,
+          "nearest_training_id": "low-train-11",
+          "nearest_training_cosine": 0.32305605381124325,
+          "priority_steps_under": 1
+        },
+        {
+          "id": "challenge-electrical-05",
+          "text": "The main circuit has failed and the occupied house has no working lights or electrical outlets.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.3732939381857333,
+          "nearest_training_id": "high-train-06",
+          "nearest_training_cosine": 0.2662376427986729,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-electrical-06",
+          "text": "Repeated breaker trips have left the entire occupied apartment without electricity; there is no reported smoke or sparking.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.3078966867903122,
+          "nearest_training_id": "high-train-11",
+          "nearest_training_cosine": 0.39471678418001827,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-electrical-07",
+          "text": "The breaker cabinet is smoking and its wiring is visibly glowing red right now.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.36062607902679533,
+          "nearest_training_id": "emergency-train-07",
+          "nearest_training_cosine": 0.3504622563089983,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-electrical-08",
+          "text": "An exposed live cable is throwing sparks across the occupied entryway.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.350344544150904,
+          "nearest_training_id": "emergency-train-09",
+          "nearest_training_cosine": 0.3592222303445219,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-general-01",
+          "text": "There is a small paint scuff on the bedroom wall and the wall is otherwise sound.",
+          "expected": "low",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.32905379146001523,
+          "nearest_training_id": "low-train-01",
+          "nearest_training_cosine": 0.5720504173471639,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-general-02",
+          "text": "A kitchen cabinet handle has a cosmetic scratch; the handle and door are firmly attached and work normally.",
+          "expected": "low",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.35753572069602674,
+          "nearest_training_id": "low-train-02",
+          "nearest_training_cosine": 0.3619786652394026,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-general-03",
+          "text": "A single window insect screen is torn; the window itself closes and locks securely.",
+          "expected": "medium",
+          "predicted": "low",
+          "max_uncalibrated_probability": 0.3504042480763662,
+          "nearest_training_id": "low-train-04",
+          "nearest_training_cosine": 0.6325571574257443,
+          "priority_steps_under": 1
+        },
+        {
+          "id": "challenge-general-04",
+          "text": "Rainwater seeps slowly through the roof into one bucket; the leak is contained and no sagging or electrical contact is reported.",
+          "expected": "medium",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.2942787447973961,
+          "nearest_training_id": "high-train-13",
+          "nearest_training_cosine": 0.25759829945701906,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-general-05",
+          "text": "The front entrance latch has broken and the occupied property cannot be secured.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.43537451530521715,
+          "nearest_training_id": "high-train-15",
+          "nearest_training_cosine": 0.35639921333457103,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-general-06",
+          "text": "The only exterior access door is jammed shut, preventing normal use; another safe exit remains available.",
+          "expected": "high",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.31888740777961794,
+          "nearest_training_id": "high-train-12",
+          "nearest_training_cosine": 0.20556824002366614,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-general-07",
+          "text": "Large sections of the ceiling are actively collapsing onto the occupied living-room floor.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.4126710733405577,
+          "nearest_training_id": "emergency-train-03",
+          "nearest_training_cosine": 0.35714215500219426,
+          "priority_steps_under": 0
+        },
+        {
+          "id": "challenge-general-08",
+          "text": "The exterior stair landing is breaking apart while people are standing on it.",
+          "expected": "emergency",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.326834839217466,
+          "nearest_training_id": "emergency-train-14",
+          "nearest_training_cosine": 0.46435921868154134,
+          "priority_steps_under": 0
+        }
+      ],
+      "unscored_outputs": [
+        {
+          "id": "unscored-01",
+          "text": "The unit is broken.",
+          "review_reason": "Insufficient detail: affected system and severity unspecified.",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.33259144690419706
+        },
+        {
+          "id": "unscored-02",
+          "text": "The shower leaks and the bedroom outlet is sparking.",
+          "review_reason": "Multiple independent systems; single-category label is inadequate.",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.30353877833997756
+        },
+        {
+          "id": "unscored-03",
+          "text": "How much should I raise the rent next year?",
+          "review_reason": "Rental pricing is outside the maintenance classifiers.",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.2748069613817265
+        },
+        {
+          "id": "unscored-04",
+          "text": "Can you book a roofer for next Tuesday?",
+          "review_reason": "Scheduling request without an issue description; no dispatch capability.",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.285832222770685
+        },
+        {
+          "id": "unscored-05",
+          "text": "My home does not feel right.",
+          "review_reason": "Insufficient observable maintenance details.",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.30132238148897944
+        },
+        {
+          "id": "unscored-06",
+          "text": "The alarm keeps beeping, but I do not know which alarm it is.",
+          "review_reason": "Alarm type and hazard state require clarification.",
+          "predicted": "medium",
+          "max_uncalibrated_probability": 0.26801925906280283
+        },
+        {
+          "id": "unscored-07",
+          "text": "The tenant says it is hot, but I do not know whether cooling is running.",
+          "review_reason": "System condition, temperature and context are missing.",
+          "predicted": "high",
+          "max_uncalibrated_probability": 0.307829508690491
+        },
+        {
+          "id": "unscored-08",
+          "text": "Yesterday there was smoke; the fire department cleared it and the damaged fixture is disconnected.",
+          "review_reason": "Historical resolved hazard differs from an active hazard; current status needs review.",
+          "predicted": "emergency",
+          "max_uncalibrated_probability": 0.3155913179110924
+        }
+      ],
+      "emergency_recall": 1.0,
+      "missed_emergency_ids": [],
+      "under_prioritized_count": 2,
+      "severely_under_prioritized_count": 0
+    }
+  }
+}
