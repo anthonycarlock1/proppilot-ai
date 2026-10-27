@@ -1,0 +1,87 @@
+{
+  "verified_at_utc": "2026-10-27T03:30:59.236Z",
+  "frontend_url": "http://127.0.0.1:8081",
+  "deployment_base_url": "http://127.0.0.1:8081",
+  "path": "Chrome -> React -> frontend proxy -> Bedrock/LangChain -> category and urgency APIs -> two SageMaker endpoints",
+  "result": {
+    "reply": "\nThe air conditioner issue is categorized as an HVAC problem, and the urgency is predicted as high. The model suggests a high priority, but manual review is required to confirm the urgency. Given the hot conditions, it's important to address this promptly.\n\n**Next step:** Arrange for an HVAC professional to inspect the air conditioner. In the meantime, advise the tenant to find a cooler place for comfort and health reasons while waiting for the service.\n\n**Practical, conservative next step:** Contact an HVAC service provider to arrange for an inspection and potential repair of the air conditioner. Suggest the tenant use fans or move to a cooler location, such as a friend's house or a public space with air conditioning, until the issue is resolved.\n\nPlease let me know if you need further assistance or if there's any other issue you'd like to address.",
+    "tool_results": [
+      {
+        "tool": "assess_maintenance",
+        "result": {
+          "category": "hvac",
+          "probabilities": {
+            "electrical": 0.20220615366601236,
+            "general": 0.22382335419418653,
+            "hvac": 0.3497494876633584,
+            "plumbing": 0.22422100447644278
+          },
+          "provider": "sagemaker",
+          "model_version": "0.1.0",
+          "urgency_assessment": {
+            "urgency": "high",
+            "probabilities": {
+              "emergency": 0.17176549182913844,
+              "high": 0.47258492674683766,
+              "low": 0.18501026808030938,
+              "medium": 0.17063931334371446
+            },
+            "provider": "sagemaker",
+            "model_version": "0.1.0",
+            "recommended_priority": "high",
+            "confirmed_hazards": [],
+            "escalation_reasons": [],
+            "policy_version": "0.1.0",
+            "manual_review_required": true
+          }
+        }
+      }
+    ],
+    "foundation_model": "amazon.nova-lite-v1:0",
+    "ticket_draft": {
+      "assessment_id": "0e41ec18-a5b7-4ab2-9989-cb2c3a3225aa",
+      "description": "My tenant says the air conditioner has stopped cooling and the house is very hot. What should I do?",
+      "assessment": {
+        "category": "hvac",
+        "category_model_version": "0.1.0",
+        "category_provider": "sagemaker",
+        "urgency": "high",
+        "urgency_model_version": "0.1.0",
+        "urgency_provider": "sagemaker",
+        "recommended_priority": "high",
+        "confirmed_hazards": [],
+        "escalation_reasons": [],
+        "policy_version": "0.1.0",
+        "manual_review_required": true
+      },
+      "created_at": "2026-10-27T03:30:55.771904+00:00",
+      "expires_at": 1793158255
+    }
+  },
+  "persisted_ticket": {
+    "version": 3,
+    "property_label": "Portfolio Browser Verification (fictional)",
+    "status": "resolved",
+    "assessment": {
+      "policy_version": "0.1.0",
+      "manual_review_required": true,
+      "escalation_reasons": [],
+      "urgency_provider": "sagemaker",
+      "recommended_priority": "high",
+      "urgency": "high",
+      "confirmed_hazards": [],
+      "category_provider": "sagemaker",
+      "category": "hvac",
+      "urgency_model_version": "0.1.0",
+      "category_model_version": "0.1.0"
+    },
+    "created_at": "2026-10-27T03:30:58.183485+00:00",
+    "ticket_id": "PP-20261027033058183436-37f663fd",
+    "assessment_id": "0e41ec18-a5b7-4ab2-9989-cb2c3a3225aa",
+    "updated_at": "2026-10-27T03:30:58.712695+00:00",
+    "description": "My tenant says the air conditioner has stopped cooling and the house is very hot. What should I do?",
+    "unit": "QA",
+    "confirm_reviewed": true
+  },
+  "note": "Fictional QA ticket retained as resolved; browser reload verified persistence."
+}
