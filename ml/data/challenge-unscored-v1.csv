@@ -1,0 +1,9 @@
+id,text,review_reason
+unscored-01,The unit is broken.,Insufficient detail: affected system and severity unspecified.
+unscored-02,The shower leaks and the bedroom outlet is sparking.,Multiple independent systems; single-category label is inadequate.
+unscored-03,How much should I raise the rent next year?,Rental pricing is outside the maintenance classifiers.
+unscored-04,Can you book a roofer for next Tuesday?,Scheduling request without an issue description; no dispatch capability.
+unscored-05,My home does not feel right.,Insufficient observable maintenance details.
+unscored-06,"The alarm keeps beeping, but I do not know which alarm it is.",Alarm type and hazard state require clarification.
+unscored-07,"The tenant says it is hot, but I do not know whether cooling is running.","System condition, temperature and context are missing."
+unscored-08,Yesterday there was smoke; the fire department cleared it and the damaged fixture is disconnected.,Historical resolved hazard differs from an active hazard; current status needs review.
