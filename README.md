@@ -33,13 +33,14 @@ flowchart TD
     Tickets --> DynamoDB[DynamoDB]
 ```
 
-Application services will run in Docker Compose and Kubernetes. AWS region: `us-east-1`. Application images: GHCR; SageMaker hosting image: ECR. Prefer existing permitted EKS infrastructure over a new cluster.
+All five application services run in Docker Compose; Kubernetes deployment remains pending. GitHub Actions tests, publishes five GHCR images, and verifies a temporary deployment from published digests; see [actual run evidence](docs/container-ci-verification.json). AWS region: `us-east-1`. Application images: GHCR; SageMaker hosting image: ECR. Prefer existing permitted EKS infrastructure over a new cluster.
 
 ## Start here
 
 - [Development plan](PLAN.md)
 - [GitHub milestone issues and board status](docs/project-tracking.md)
 - [Terraform remote state and recovery](docs/terraform-state.md)
+- [Container CI and GHCR publication](docs/ci-cd.md)
 - [Rubric and evidence checklist](docs/rubric-mapping.md)
 - [Architecture decisions](docs/architecture.md)
 - [AI development log](docs/ai-development-log.md)

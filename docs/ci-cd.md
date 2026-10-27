@@ -26,3 +26,7 @@ gh run view RUN_ID --repo anthonycarlock1/proppilot-ai --log-failed
 A manual workflow dispatch on `main` reruns checks/publication/verification for that commit. A dispatch on another branch runs tests only. Review the run's conclusion and artifacts; a workflow file by itself is not proof that publication worked. The GitHub account needs Actions minutes/package storage allowance for this private repository.
 
 The next deployment milestone must configure scoped GitHub-to-AWS identity, Kubernetes workload identity and GHCR pull access, then verify the live cloud path. Do not upload development AWS credentials or the local assessment token to repository secrets as a shortcut. Kubernetes rollback should select a previously verified image digest and rerun rollout/cloud checks; this workflow does not yet automate that rollout.
+
+## Verified release
+
+[Run 40442879961](https://github.com/anthonycarlock1/proppilot-ai/actions/runs/40442879961) completed successfully for commit `bbaee25105c6b4c9e8d8d49a65d904695ef6f269`: 29 Python tests, six pre-publication browser checks, all five image publications, actual local inference/proxy checks and six published-stack browser checks. All five containers were healthy, and cleanup succeeded. [Saved evidence](container-ci-verification.json) retains the exact five registry digests after temporary Actions artifacts expire. The CI implementation was merged in PR #8; remote state was merged in PR #7.
