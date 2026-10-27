@@ -39,6 +39,7 @@ Application services will run in Docker Compose and Kubernetes. AWS region: `us-
 
 - [Development plan](PLAN.md)
 - [GitHub milestone issues and board status](docs/project-tracking.md)
+- [Terraform remote state and recovery](docs/terraform-state.md)
 - [Rubric and evidence checklist](docs/rubric-mapping.md)
 - [Architecture decisions](docs/architecture.md)
 - [AI development log](docs/ai-development-log.md)

@@ -26,3 +26,5 @@ ml/data/processed/
 ml/artifacts/
 *.joblib
 *.tar.gz
+
+.state-backups/
