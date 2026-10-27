@@ -16,7 +16,7 @@ Both category and urgency now run on independent SageMaker endpoints. The chat t
 
 Run `docker compose up -d --build category` from this directory, then open http://127.0.0.1:8001/docs to try predictions. Run `python3.11 scripts/smoke_category.py` to verify the running service.
 
-The first release will classify maintenance requests, estimate urgency, and create and track tickets through a Bedrock-powered chat interface.
+The application classifies maintenance requests, estimates urgency, and creates and tracks reviewed tickets through a Bedrock-powered chat interface.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ flowchart TD
     Tickets --> DynamoDB[DynamoDB]
 ```
 
-All five application services run in Docker Compose and in an isolated namespace on the existing EKS cluster. See [Kubernetes deployment and verification](docs/kubernetes.md); the EKS demo is available through a localhost port-forward at http://127.0.0.1:8081. GitHub Actions tests, publishes five GHCR images, and verifies a temporary deployment from published digests; see [actual run evidence](docs/container-ci-verification.json). AWS region: `us-east-1`. Application images: GHCR; SageMaker hosting image: ECR. Prefer existing permitted EKS infrastructure over a new cluster.
+All five application services run in Docker Compose and in an isolated namespace on the existing EKS cluster. See [Kubernetes deployment and verification](docs/kubernetes.md); the EKS demo is available through a localhost port-forward at http://127.0.0.1:8081. GitHub Actions tests, publishes five GHCR images, verifies the published stack, copies matching runtime images to ECR, rolls out to EKS and verifies the real cloud ticket workflow. See [automated deployment evidence](docs/automated-deployment-verification.json) and [cloud CI/CD setup](docs/cloud-cd.md). AWS region: `us-east-1`. Application images: GHCR; SageMaker hosting image: ECR. Prefer existing permitted EKS infrastructure over a new cluster.
 
 ## Start here
 

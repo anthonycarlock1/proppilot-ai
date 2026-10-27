@@ -1,6 +1,6 @@
 # Terraform remote state
 
-All six PropPilot roots use the dedicated `anthony-proppilot-tfstate-388691194728` S3 bucket in `us-east-1`, with distinct default-workspace keys:
+All seven PropPilot roots use the dedicated `anthony-proppilot-tfstate-388691194728` S3 bucket in `us-east-1`, with distinct default-workspace keys:
 
 | Root | Key |
 | --- | --- |
@@ -10,6 +10,7 @@ All six PropPilot roots use the dedicated `anthony-proppilot-tfstate-38869119472
 | urgency-hosting | proppilot/urgency-hosting/terraform.tfstate |
 | tickets | proppilot/tickets/terraform.tfstate |
 | runtime | proppilot/runtime/terraform.tfstate |
+| ci | proppilot/ci/terraform.tfstate |
 
 The bucket has versioning, AES256 server-side encryption, all public-access blocks, bucket-owner-enforced ownership and a deny for non-TLS requests. Terraform `prevent_destroy` and `force_destroy = false` protect ordinary bucket teardown. These are safeguards, not protection against an administrator deliberately changing configuration or deleting versions. No state expiration lifecycle is configured: old versions remain available for recovery and incur small storage/request charges.
 

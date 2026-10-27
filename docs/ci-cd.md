@@ -14,7 +14,7 @@ Each tag is `sha-<full commit SHA>` with source/revision labels. Only the publis
 
 After every publication succeeds, a separate job pulls all five images, verifies their revision labels, resolves content digests and starts a temporary Compose deployment pinned to those digests without building. It checks actual local-model HTTP predictions, nginx-to-agent routing, and the six deterministic browser workflows. Release digests, service status and test artifacts are retained for 14 days. Containers are removed even when verification fails. Commit tags support traceability; they are not an immutable registry policy, and Docker source labels alone are not cryptographic attestations.
 
-This is a temporary runner integration deployment. Placeholder credentials mean it cannot invoke Bedrock, SageMaker or DynamoDB; the ticket liveness check does not establish storage readiness. Real AWS integration evidence remains separate. No EKS rollout or production deployment is claimed by this workflow. Existing AWS resources and the local running staging stack are unaffected.
+The temporary Compose verification job uses placeholder credentials and cannot invoke Bedrock, SageMaker or DynamoDB; its ticket liveness check does not establish storage readiness. After it passes, a separate scoped OIDC job rolls out to EKS and verifies the real cloud path. The local Compose demo is unaffected.
 
 ## Run and inspect
 
@@ -23,9 +23,9 @@ gh run list --workflow containers.yaml --repo anthonycarlock1/proppilot-ai
 gh run view RUN_ID --repo anthonycarlock1/proppilot-ai --log-failed
 ```
 
-A manual workflow dispatch on `main` reruns checks/publication/verification for that commit. A dispatch on another branch runs tests only. Review the run's conclusion and artifacts; a workflow file by itself is not proof that publication worked. The GitHub account needs Actions minutes/package storage allowance for this private repository.
+A manual workflow dispatch on `main` reruns checks/publication/verification and the gated EKS deployment for that commit. A dispatch on another branch runs tests only. Review the run's conclusion and artifacts; a workflow file by itself is not proof that publication worked. The GitHub account needs Actions minutes/package storage allowance for this private repository.
 
-The manual [EKS deployment](kubernetes.md) now uses scoped workload identities, private ECR images and a verified real-cloud browser path. Automated deployment still needs scoped GitHub-to-AWS identity and namespace RBAC. Do not upload development AWS credentials or the local assessment token to repository secrets as a shortcut. Kubernetes rollback should select a previously verified image digest and rerun rollout/cloud checks; this workflow does not yet automate that rollout.
+The manual [EKS deployment](kubernetes.md) now uses scoped workload identities, private ECR images and a verified real-cloud browser path. [Automated deployment](cloud-cd.md) now uses a scoped OIDC role and namespace RBAC, then verifies the real cloud workflow; see [successful execution evidence](automated-deployment-verification.json). Do not upload development AWS credentials or the local assessment token to repository secrets as a shortcut. Kubernetes rollback should select a previously verified image digest and rerun rollout/cloud checks; the cloud job records a failing result and leaves rollback to the reviewed runbook.
 
 ## Verified release
 

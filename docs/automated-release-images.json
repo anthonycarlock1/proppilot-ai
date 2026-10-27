@@ -1,0 +1,42 @@
+[
+  {
+    "service": "category",
+    "source": "ghcr.io/anthonycarlock1/proppilot-ai-category@sha256:eecf503bb7cbd88a9ac5c3d338f149862cf43361d60f69181f43a13bcdf9f132",
+    "repository": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-category",
+    "digest": "sha256:0dc90c2062339b1ea3557cb34c02d2203c2a084334065f52c553f6ed6bc0d9a5",
+    "revision": "e6149308900a64fb41319894f4c873749adbabd5",
+    "runtime_image_id_preserved": true
+  },
+  {
+    "service": "urgency",
+    "source": "ghcr.io/anthonycarlock1/proppilot-ai-urgency@sha256:27dbcfeb2e1b0d8b9eaed8d86b24c56e0761b9c94861db8ef195f8d351d97368",
+    "repository": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-urgency",
+    "digest": "sha256:4031a65c3b9eb993434b8399dc8e713590c4126ff04959d72e1105f1d56850a8",
+    "revision": "e6149308900a64fb41319894f4c873749adbabd5",
+    "runtime_image_id_preserved": true
+  },
+  {
+    "service": "tickets",
+    "source": "ghcr.io/anthonycarlock1/proppilot-ai-tickets@sha256:58295fd121b59487bc132714d6cad3e4169bb9ec431d8f0f99167f6bd0ef138c",
+    "repository": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-tickets",
+    "digest": "sha256:610f52889eb8509b6a00f2e3f7f849f3b341fbc8c05f3ff81d8d5ef0c8cd0828",
+    "revision": "e6149308900a64fb41319894f4c873749adbabd5",
+    "runtime_image_id_preserved": true
+  },
+  {
+    "service": "agent",
+    "source": "ghcr.io/anthonycarlock1/proppilot-ai-agent@sha256:fc02b60164f3e41981ce2aed1836c2407789c9ab89c233b88b880039d025d0ad",
+    "repository": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-agent",
+    "digest": "sha256:265b1b9227eb4d8e37362f0e5919076aba53b4cd6c0d509c96c99140ee86f9ae",
+    "revision": "e6149308900a64fb41319894f4c873749adbabd5",
+    "runtime_image_id_preserved": true
+  },
+  {
+    "service": "frontend",
+    "source": "ghcr.io/anthonycarlock1/proppilot-ai-frontend@sha256:109179c83a648daa6531d33525e29b751e2ea1586779880984538e66ca108311",
+    "repository": "388691194728.dkr.ecr.us-east-1.amazonaws.com/anthony-proppilot-frontend",
+    "digest": "sha256:17ee6ffb463d249deea0ad47096baefc23754e511579e4da8041befaf80caffe",
+    "revision": "e6149308900a64fb41319894f4c873749adbabd5",
+    "runtime_image_id_preserved": true
+  }
+]
