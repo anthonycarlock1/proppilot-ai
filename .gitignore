@@ -32,3 +32,11 @@ ml/artifacts/
 compose.release.json
 release-images.json
 compose-status.txt
+
+release-ecr-images.json
+eks-rollout-status.txt
+
+eks-live-verification.json
+
+deployment-identity.json
+ci-access-verification.json

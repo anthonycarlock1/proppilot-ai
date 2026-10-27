@@ -13,10 +13,10 @@ def main():
     if current != CONTEXT:
         raise RuntimeError('Select the documented Anthony assessment EKS context first')
     kubectl = ['kubectl', '--context', CONTEXT]
-    manifest = (ROOT / 'k8s/kustomization.yaml').read_text()
+    manifest = (ROOT / 'k8s/base/kustomization.yaml').read_text()
     if 'digest: sha256:' not in manifest:
         raise RuntimeError('Publish images and pin digests before deploying')
-    subprocess.run(kubectl + ['apply', '-f', str(ROOT / 'k8s/namespace.yaml')], check=True)
+    subprocess.run(kubectl + ['apply', '-f', str(ROOT / 'k8s/base/namespace.yaml')], check=True)
     found = subprocess.run(kubectl + ['-n', 'proppilot', 'get', 'secret', 'assessment-handoff', '-o', 'name'], capture_output=True, text=True)
     if found.returncode:
         # Only create after an explicit NotFound; never rotate on permission/network failures.

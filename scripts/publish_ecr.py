@@ -37,7 +37,7 @@ def main():
             '--repository-name', repository, '--image-ids', f'imageTag={tag}'], text=True))['imageDetails'][0]
         images.append({'service': service, 'repository': f'{REGISTRY}/{repository}', 'digest': detail['imageDigest'], 'tag': tag, 'revision': revision})
     (ROOT / 'docs/eks-images.json').write_text(json.dumps(images, indent=2) + '\n')
-    manifest = ROOT / 'k8s/kustomization.yaml'
+    manifest = ROOT / 'k8s/base/kustomization.yaml'
     base = manifest.read_text().split('\nimages:')[0]
     manifest.write_text(base.rstrip() + '\nimages:\n' + ''.join(
         f"  - name: proppilot/{i['service']}\n    newName: {i['repository']}\n    digest: {i['digest']}\n" for i in images))

@@ -6,16 +6,16 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-env:
-  AWS_ACCESS_KEY_ID: ci-placeholder
-  AWS_SECRET_ACCESS_KEY: ci-placeholder
-  AWS_REGION: us-east-1
-  AWS_EC2_METADATA_DISABLED: 'true'
 concurrency:
   group: containers-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   ml-and-tickets:
+    env:
+      AWS_ACCESS_KEY_ID: ci-placeholder
+      AWS_SECRET_ACCESS_KEY: ci-placeholder
+      AWS_REGION: us-east-1
+      AWS_EC2_METADATA_DISABLED: 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -40,6 +40,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_urgency.py' -v
           python -m unittest discover -s tests -p 'test_tickets.py' -v
   agent:
+    env:
+      AWS_ACCESS_KEY_ID: ci-placeholder
+      AWS_SECRET_ACCESS_KEY: ci-placeholder
+      AWS_REGION: us-east-1
+      AWS_EC2_METADATA_DISABLED: 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -163,3 +168,93 @@ jobs:
       - name: Stop temporary deployment
         if: always()
         run: docker compose -f compose.yaml -f compose.release.json down
+
+  deploy-eks:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: verify-published
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    concurrency:
+      group: proppilot-eks-deployment
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      packages: read
+      id-token: write
+    env:
+      AWS_REGION: us-east-1
+      FRONTEND_URL: http://127.0.0.1:8081
+      CHROME_PATH: /usr/bin/google-chrome
+      PROPPILOT_LIVE_TEST: '1'
+      PROPPILOT_EVIDENCE_PATH: ../eks-live-verification.json
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Assume scoped deployment role through OIDC
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::388691194728:role/anthony-proppilot-github-deploy
+          role-session-name: proppilot-${{ github.run_id }}
+          role-duration-seconds: 1800
+          allowed-account-ids: '388691194728'
+          unset-current-credentials: true
+          retry-max-attempts: 2
+      - name: Pull verified release and copy matching runtime images to ECR
+        run: |
+          python3 scripts/pull_release.py
+          python3 scripts/mirror_release_ecr.py
+      - name: Select existing cluster and dry-run application-only overlay
+        run: |
+          aws eks update-kubeconfig --region us-east-1 --name anthony-assessment4-eks
+          aws sts get-caller-identity > deployment-identity.json
+          python3 scripts/verify_ci_access.py
+          kubectl apply --dry-run=server -k k8s/ci
+      - name: Apply application release and wait for rollout
+        run: |
+          kubectl apply -k k8s/ci
+          for service in category urgency tickets agent frontend; do
+            kubectl -n proppilot rollout status deployment/"$service" --timeout=240s
+          done
+      - name: Open temporary localhost access
+        run: |
+          kubectl -n proppilot port-forward service/frontend 8081:8080 --address 127.0.0.1 > /tmp/proppilot-forward.log 2>&1 &
+          echo "$!" > /tmp/proppilot-forward.pid
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8081/api/health; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Verify real Bedrock, both SageMaker endpoints and durable ticket lifecycle
+        working-directory: frontend
+        run: npm ci && npx playwright test --grep 'real browser request'
+      - name: Collect namespace rollout evidence
+        if: always()
+        run: kubectl -n proppilot get deployments,pods,services -o wide > eks-rollout-status.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: eks-verification-${{ github.sha }}
+          path: |
+            release-ecr-images.json
+            deployment-identity.json
+            ci-access-verification.json
+            eks-rollout-status.txt
+            eks-live-verification.json
+            frontend/test-results/
+          retention-days: 14
+      - name: Close temporary port-forward
+        if: always()
+        run: |
+          if [ -f /tmp/proppilot-forward.pid ]; then
+            kill "$(cat /tmp/proppilot-forward.pid)" || true
+          fi
